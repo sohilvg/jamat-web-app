@@ -62,11 +62,11 @@
                         <!-- First name Section -->
                         <div class="row form-group">
                             <label class="control-label col-lg-3" for="f_name">First Name:</label>
-                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.name.$invalid && !addMemberForm.name.$pristine }">
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.mname.$invalid && !addMemberForm.mname.$pristine }">
                                 <input type="text" class="form-control" id="f_name" placeholder="Javed" ng-model="newmember.firstname"
-                                    name="name" ng-required="true">
-                                <div ng-show="addMemberForm.name.$dirty && addMemberForm.name.$invalid" class="help-block">
-                                    <span ng-show="addMemberForm.name.$error.required">Tell us your name.</span>
+                                    name="mname" ng-required="true">
+                                <div ng-show="addMemberForm.mname.$dirty && addMemberForm.mname.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.mname.$error.required">Tell us your name.</span>
                                 </div>
                             </div>
                         </div>
@@ -141,10 +141,10 @@
                             <label class="control-label col-lg-3" for="aadhar_card">Aadhar Card:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.addhar.$invalid && !addMemberForm.addhar.$pristine }">
                                 <input type="number" class="form-control" id="aadhar_card" placeholder="1234-5678-9012-3456"
-                                    ng-model="newmember.aadhar" ng-required="true" name="addhar">
+                                    ng-model="newmember.aadhar" min="1000000000000000" max="9999999999999999" ng-required="true" name="addhar">
                                     <div ng-show="addMemberForm.addhar.$dirty && addMemberForm.addhar.$invalid" class="help-block">
-                                        <span ng-show="addMemberForm.addhar.$error.required">Tell us your Addhar_Card.</span>
-                                        <span ng-show="addMemberForm.addhar.$error.number">This is not a valid  Addhar Card.</span>
+                                        <span ng-show="addMemberForm.addhar.$error.required">Tell us your Aadhar Card.</span>
+                                        <span ng-show="addMemberForm.addhar.$error.number">This is not a valid  Aadhar Card.</span>
                                         <span ng-show="addMemberForm.addhar.$error.min || addMemberForm.addhar.$error.max">
                                             Contact must be in 16 digits!</span>
                                     </div>
