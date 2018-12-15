@@ -35,7 +35,7 @@
                             <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.select.$invalid && !addMemberForm.select.$pristine }">
                                 <select class="form-control" id="Jamat_id" ng-model="newmember.jamatid" name="select" ng-required="true">
                                     <option ng-repeat="jamat in jamats" value="{{jamat.id}}">{{jamat.name}}</option>
-                                    <option value="" disabled selected>Select District</option>
+                                    <option value="" disabled selected>Select Jamat</option>
                                     <div ng-show="addMemberForm.select.$dirty && addMemberForm.select.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.select.$error.required">Tell us your Jamat.</span>
                                     </div>
