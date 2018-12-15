@@ -19,6 +19,24 @@ angular.module('sbAdminApp')
 			state: ''
 		};
 
+		$scope.getCity = function () {
+			$http({ url: 'http://localhost:3000/city' }).then(function (successResponse) {
+				$scope.cities = successResponse.data;
+				return successResponse;
+			}, function (errorResponse) {
+				return errorResponse
+			});
+		};
+
+		$scope.getState = function () {
+			$http({ url: 'http://localhost:3000/state' }).then(function (successResponse) {
+				$scope.states = successResponse.data;
+				return successResponse;
+			}, function (errorResponse) {
+				return errorResponse
+			});
+		};
+
 		$scope.addJamat = function (newJamat) {
 
 			$http({ url: 'http://localhost:3000/jamat', method: 'POST', data: newJamat }).then(function (successResponse) {
@@ -30,4 +48,6 @@ angular.module('sbAdminApp')
 
 		};
 		$scope.getJamats();
+		$scope.getState();
+		$scope.getCity();
 	}]);
