@@ -5,340 +5,419 @@
     <!-- /.col-lg-12 -->
 </div>
 
-<div class="row" ng-controller="MemberCtrl">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
+<form name="addMemberForm">
+    <div class="row" ng-controller="MemberCtrl">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
 
-                <div class="panel-heading">
-                    Jamat Details
-                </div>
+                    <div class="panel-heading">
+                        Jamat Details
+                    </div>
 
-                <div class="panel-body form-horizontal">
-                    <!-- Member Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-2" for="member_id">Member Id:</label>
-                        <div class="col-lg-4">
-                            <input type="text" class="form-control" id="member_id" placeholder="Enter member id"
-                                ng-model="newmember.member_id">
+
+                    <div class="panel-body form-horizontal">
+                        <!-- Member Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-2" for="member_id">Member Id:</label>
+                            <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.memberid.$invalid && !addMemberForm.memberid.$pristine }" >
+                                <input type="number" class="form-control" id="member_id" placeholder="Enter member id"
+                                    ng-model="newmember.member_id"  name="memberid" ng-required="true">
+                                    <div ng-show="addMemberForm.memberid.$dirty && addMemberForm.memberid.$invalid" class="help-block">
+                                        <span ng-show="addMemberForm.memberid.$error.required">Tell us your Member Id.</span>
+                                        <span ng-show="addMemberForm.memberid.$error.number ">The value is not a valid
+                                            number !</span>
+                                        <span ng-show="addMemberForm.memberid.$error.min || addMemberForm.memberid.$error.max">
+                                            Contact must be in 10 digits!</span>
+                                            </div>
+                            </div>
+                            <label class="control-label col-lg-2" for="Jamat_id">Jamat:</label>
+                            <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.select.$invalid && !addMemberForm.select.$pristine }">
+                                <select class="form-control" id="Jamat_id" ng-model="newmember.jamatid" name="select" ng-required="true">
+                                    <option ng-repeat="jamat in jamats" value="{{jamat.id}}">{{jamat.name}}</option>
+                                    <option value="" disabled selected>Select District</option>
+                                    <div ng-show="addMemberForm.select.$dirty && addMemberForm.select.$invalid" class="help-block">
+                                        <span ng-show="addMemberForm.select.$error.required">Tell us your Jamat.</span>
+                                    </div>
+                                </select> 
+                            </div>
+
                         </div>
-                        <label class="control-label col-lg-2" for="Jamat_id">Jamat:</label>
-                        <div class="col-lg-4">
-                            <select class="form-control" id="Jamat_id" ng-model="newmember.jamatid">
-                                <option ng-repeat="jamat in jamats" value="{{jamat.id}}">{{jamat.name}}</option>
-                            </select>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Personal details Section -->
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        Personal Details
+                    </div>
+
+                    <div class="panel-body form-horizontal">
+
+                        <!-- First name Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="f_name">First Name:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.name.$invalid && !addMemberForm.name.$pristine }">
+                                <input type="text" class="form-control" id="f_name" placeholder="Javed" ng-model="newmember.firstname"
+                                    name="name" ng-required="true">
+                                <div ng-show="addMemberForm.name.$dirty && addMemberForm.name.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.name.$error.required">Tell us your name.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Middle name Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="m_name">Father Name:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.father.$invalid && !addMemberForm.father.$pristine }">
+                                <input type="text" class="form-control" id="m_name" placeholder="Avis" ng-model="newmember.middlename"
+                                    name="father" ng-required="true">
+                                <div ng-show="addMemberForm.father.$dirty && addMemberForm.father.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.father.$error.required">Tell us your Father Name.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Last name Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="l_name">Surname:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.sur.$invalid && !addMemberForm.sur.$pristine }">
+                                <input type="text" class="form-control" id="l_name" placeholder="Salat" ng-model="newmember.lastname"
+                                    name="sur" ng-required="true">
+                                <div ng-show="addMemberForm.sur.$dirty && addMemberForm.sur.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.sur.$error.required">Tell us your Surname.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gender Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="gender_group">Gender:</label>
+                            <div class="col-lg-9">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender_group" id="gender_group_opt_1" value="M" ng-model="newmember.gender">Male
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender_group" id="gender_group_opt_2" value="F" ng-model="newmember.gender">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Contact Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="contact_no">Contact No:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.mContact.$invalid && !addMemberForm.mContact.$pristine }">
+                                <input type="number" class="form-control" id="contact_no" min="1000000000" max="9999999999"
+                                    name="mContact" placeholder="9022578254" ng-model="newmember.contact"  ng-required="true">
+                                <div ng-show="addMemberForm.mContact.$dirty && addMemberForm.mContact.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.mContact.$error.required">Tell us your Contact No.</span>
+                                    <span ng-show="addMemberForm.mContact.$error.number ">The value is not a valid
+                                        number !</span>
+                                    <span ng-show="addMemberForm.mContact.$error.min || addMemberForm.mContact.$error.max">
+                                        Contact must be in 10 digits!</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="email_id">Email:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.mEmail.$invalid && !addMemberForm.mEmail.$pristine }">
+                                <input type="email" name="mEmail" class="form-control" id="email_id" placeholder="javed@example.com"
+                                    ng-model="newmember.email" ng-required="true">
+                                <div ng-show="addMemberForm.mEmail.$dirty && addMemberForm.mEmail.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.mEmail.$error.required">Tell us your email.</span>
+                                    <span ng-show="addMemberForm.mEmail.$error.email">This is not a valid email.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aadhar Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="aadhar_card">Aadhar Card:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.addhar.$invalid && !addMemberForm.addhar.$pristine }">
+                                <input type="number" class="form-control" id="aadhar_card" placeholder="1234-5678-9012-3456"
+                                    ng-model="newmember.aadhar" ng-required="true" name="addhar">
+                                    <div ng-show="addMemberForm.addhar.$dirty && addMemberForm.addhar.$invalid" class="help-block">
+                                        <span ng-show="addMemberForm.addhar.$error.required">Tell us your Addhar_Card.</span>
+                                        <span ng-show="addMemberForm.addhar.$error.number">This is not a valid  Addhar Card.</span>
+                                        <span ng-show="addMemberForm.addhar.$error.min || addMemberForm.addhar.$error.max">
+                                            Contact must be in 16 digits!</span>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        Personal Address
+                    </div>
+
+                    <div class="panel-body form-horizontal">
+                        <!-- Address 1 Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="p_address">Address:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.address.$invalid && !addMemberForm.address.$pristine }">
+                                <input type="text" class="form-control" id="p_address_1" placeholder="102 Shantivan Appartment"
+                                    ng-model="newmember.home.address1"  ng-required="true" name="address">
+                                    <div ng-show="addMemberForm.address.$dirty && addMemberForm.address.$invalid" class="help-block">
+                                        <span ng-show="addMemberForm.address.$error.required">Tell us your Address.</span>
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- Address 2 Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="p_address_2"></label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="p_address_2" placeholder="Jogeshwari, Opp Station"
+                                    ng-model="newmember.home.address2">
+                            </div>
+                        </div>
+                        <!-- State Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="p_state">State:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.state.$invalid && !addMemberForm.state.$pristine }">
+                                <select class="form-control" id="p_state" ng-model="newmember.home.state"  name="state" ng-required="true">
+                                    <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
+                                    <option value="" disabled selected>Select State</option>
+                                    <div ng-show="addMemberForm.state.$dirty && addMemberForm.state.$invalid" class="help-block">
+                                        <span ng-show="addMemberForm.state.$error.required">Tell us your State.</span>
+                                    </div>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- District Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="p_district">District:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.district.$invalid && !addMemberForm.district.$pristine }">
+                                <select class="form-control" id="p_district" ng-model="newmember.home." name="district" ng-required="true"> 
+                                    <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}</option>
+                                    <option value="" disabled selected>Select District</option>
+                                    <div ng-show="addMemberForm.district.$dirty && addMemberForm.district.$invalid" class="help-block">
+                                        <span ng-show="addMemberForm.district.$error.required">Tell us your District.</span>
+                                    </div>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- city Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="p_city">City:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.city.$invalid && !addMemberForm.city.$pristine }">
+                                <select class="form-control" id="p_city" ng-model="newmember.home.city" name="city" ng-required="true">
+                                    <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
+                                    <option value="" disabled selected>Select City</option>
+                                    <div ng-show="addMemberForm.city.$dirty && addMemberForm.city.$invalid" class="help-block">
+                                        <span ng-show="addMemberForm.city.$error.required">Tell us your District.</span>
+                                    </div>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Pincode Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="p_code">Pincode:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.pincode.$invalid && !addMemberForm.pincode.$pristine }">
+                                <input type="number" class="form-control" id="p_code" placeholder="394180" min="100000" max="666666" ng-model="newmember.home.pincode" ng-required="true" name="pincode">
+                                <div ng-show="addMemberForm.pincode.$dirty && addMemberForm.pincode.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.pincode.$error.required">Tell us your Pincode.</span>
+                                    <span ng-show="addMemberForm.pincode.$error.number ">The value is not a valid Pincode
+                                        number !</span>
+                                    <span ng-show="addMemberForm.pincode.$error.min || addMemberForm.pincode.$error.max">
+                                        Contact must be in 6 digits!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Work details section -->
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        Work Details
+                    </div>
+
+                    <div class="panel-body form-horizontal">
+
+                        <!-- Business  name Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="b_name">Business:</label>
+                            <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.business.$invalid && !addMemberForm.business.$pristine }">
+                                <input type="text" class="form-control" id="b_name" placeholder="Symbuzz" ng-model="newmember.business"  ng-required="true" name="business">
+                                <div ng-show="addMemberForm.business.$dirty && addMemberForm.business.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.business.$error.required">Tell us your name.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Business Discription Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="b_desc">Discription:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="b_desc" placeholder="software developer"
+                                    ng-model="newmember.discription">
+                            </div>
+                        </div>
+                        <!-- Website Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="w_name">Website:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="w_name" placeholder="www.symbuzz.com"
+                                    ng-model="newmember.website">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        Ownership Details
+                    </div>
+
+                    <div class="panel-body form-horizontal">
+
+                        <!-- Residence Ownership Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-6" for="h_owner">Residence Place Self Owned:</label>
+                            <div class="col-lg-6">
+                                <label class="radio-inline">
+                                    <input type="radio" name="h_owner_opt" id="h_owner_opt_1" value="Yes" ng-model="newmember.rown">Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="h_owner_opt" id="h_owner_opt_2" value="No" ng-model="newmember.rown">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Business place Ownership Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-6" for="b_owner">Business Place Self Owned:</label>
+                            <div class="col-lg-6">
+                                <label class="radio-inline">
+                                    <input type="radio" name="b_owner_opt" id="b_owner_opt_1" value="Yes" ng-model="newmember.bown">Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="b_owner_opt" id="b_owner_opt_2" value="No" ng-model="newmember.bown">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row form-group">
                         </div>
                     </div>
 
+                </div>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        Work Address
+                    </div>
+
+                    <div class="panel-body form-horizontal">
+                        <!-- Address 1 Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="b_address">Address:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="b_address_1" placeholder="80 Shantivan Appartment"
+                                    ng-model="newmember.work.address1">
+                            </div>
+                        </div>
+                        <!-- Address 2 Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="b_address_2"></label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="b_address_2" placeholder="kamrej, Opp Station"
+                                    ng-model="newmember.work.address2">
+                            </div>
+                        </div>
+                        <!-- State Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="b_state">State:</label>
+                            <div class="col-lg-9">
+                                <select class="form-control" id="b_state" ng-model="newmember.work.state">
+                                    <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
+                                    <option value="" disabled selected>Select State</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- District Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="b_district">District:</label>
+                            <div class="col-lg-9">
+                                <select class="form-control" id="b_district" ng-model="newmember.work.district">
+                                    <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}</option>
+                                    <option value="" disabled selected>Select District</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- city Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="b_city">City:</label>
+                            <div class="col-lg-9">
+                                <select class="form-control" id="b_city" ng-model="newmember.work.city">
+                                    <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
+                                    <option value="" disabled selected>Select City</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Pincode Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3" for="wp_code">Pincode:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="wp_code" placeholder="394081" ng-model="newmember.work.pincode">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        Signing Person Details
+                    </div>
+
+                    <div class="panel-body form-horizontal">
+                        <!-- Signing Section -->
+                        <div class="row form-group">
+                            <label class="control-label col-lg-2" for="sign_name">Name :</label>
+                            <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.name.$invalid && !addMemberForm.name.$pristine }">
+                                <input type="text" class="form-control" id="sign_name" placeholder="javed" ng-model="newmember.signname" ng-required="true" name="name">
+                                <div ng-show="addMemberForm.name.$dirty && addMemberForm.name.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.name.$error.required">Tell us your Name.</span>
+                                </div>
+                            </div>
+                            <label class="control-label col-lg-2" for="des_name">Designation :</label>
+                            <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.designation.$invalid && !addMemberForm.designation.$pristine }">
+                                <input type="text" class="form-control" id="des_name" placeholder="manager" ng-model="newmember.desname" name="designation" ng-required="true">
+                                <div ng-show="addMemberForm.designation.$dirty && addMemberForm.designation.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.designation.$error.required">Tell us your Designation.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10"></div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click='addMember(newmember)' ng-disabled="addMemberForm.$invalid">Save</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <!-- Personal details Section -->
-        <div class="col-lg-6">
-            <div class="panel panel-default">
-
-                <div class="panel-heading">
-                    Personal Details
-                </div>
-
-                <div class="panel-body form-horizontal">
-
-                    <!-- First name Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="f_name">First Name:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="f_name" placeholder="Javed" ng-model="newmember.firstname">
-                        </div>
-                    </div>
-                    <!-- Middle name Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="m_name">Father Name:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="m_name" placeholder="Avis" ng-model="newmember.middlename">
-                        </div>
-                    </div>
-                    <!-- Last name Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="l_name">Surname:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="l_name" placeholder="Salat" ng-model="newmember.lastname">
-                        </div>
-                    </div>
-
-                    <!-- Gender Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="gender_group">Gender:</label>
-                        <div class="col-lg-9">
-                            <label class="radio-inline">
-                                <input type="radio" name="gender_group" id="gender_group_opt_1" value="M" ng-model="newmember.gender">Male
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="gender_group" id="gender_group_opt_2" value="F" ng-model="newmember.gender">
-                                Female
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Contact Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="contact_no">Contact No:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="contact_no" placeholder="9022578254" ng-model="newmember.contact">
-                        </div>
-                    </div>
-
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="email_id">Email:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="email_id" placeholder="javed@example.com"
-                                ng-model="newmember.email">
-                        </div>
-                    </div>
-
-                    <!-- Aadhar Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="aadhar_card">Aadhar Card:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="aadhar_card" placeholder="1234-5678-9012-3456"
-                                ng-model="newmember.aadhar">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-
-                <div class="panel-heading">
-                    Personal Address
-                </div>
-
-                <div class="panel-body form-horizontal">
-                    <!-- Address 1 Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="p_address">Address:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="p_address_1" placeholder="102 Shantivan Appartment"
-                                ng-model="newmember.home.address1">
-                        </div>
-                    </div>
-                    <!-- Address 2 Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="p_address_2"></label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="p_address_2" placeholder="Jogeshwari, Opp Station"
-                                ng-model="newmember.home.address2">
-                        </div>
-                    </div>
-                    <!-- State Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="p_state">State:</label>
-                        <div class="col-lg-9">
-                            <select class="form-control" id="p_state" ng-model="newmember.home.state">
-                                <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- District Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="p_district">District:</label>
-                        <div class="col-lg-9">
-                            <select class="form-control" id="p_district" ng-model="newmember.home.">
-                                <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- city Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="p_city">City:</label>
-                        <div class="col-lg-9">
-                            <select class="form-control" id="p_city" ng-model="newmember.home.city">
-                                <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Pincode Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="p_code">Pincode:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="p_code" placeholder="394180" ng-model="newmember.home.pincode">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Work details section -->
-        <div class="col-lg-6">
-            <div class="panel panel-default">
-
-                <div class="panel-heading">
-                    Work Details
-                </div>
-
-                <div class="panel-body form-horizontal">
-
-                    <!-- Business  name Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="b_name">Business:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="b_name" placeholder="Symbuzz" ng-model="newmember.business">
-                        </div>
-                    </div>
-                    <!-- Business Discription Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="b_desc">Discription:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="b_desc" placeholder="software developer"
-                                ng-model="newmember.discription">
-                        </div>
-                    </div>
-                    <!-- Website Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="w_name">Website:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="w_name" placeholder="www.symbuzz.com" ng-model="newmember.website">
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="panel panel-default">
-
-                <div class="panel-heading">
-                    Ownership Details
-                </div>
-
-                <div class="panel-body form-horizontal">
-
-                    <!-- Residence Ownership Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-6" for="h_owner">Residence Place Self Owned:</label>
-                        <div class="col-lg-6">
-                            <label class="radio-inline">
-                                <input type="radio" name="h_owner_opt" id="h_owner_opt_1" value="Yes" ng-model="newmember.rown">Yes
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="h_owner_opt" id="h_owner_opt_2" value="No" ng-model="newmember.rown">
-                                No
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Business place Ownership Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-6" for="b_owner">Business Place Self Owned:</label>
-                        <div class="col-lg-6">
-                            <label class="radio-inline">
-                                <input type="radio" name="b_owner_opt" id="b_owner_opt_1" value="Yes" ng-model="newmember.bown">Yes
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="b_owner_opt" id="b_owner_opt_2" value="No" ng-model="newmember.bown">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                    </div>
-                </div>
-
-            </div>
-            <div class="panel panel-default">
-
-                <div class="panel-heading">
-                    Work Address
-                </div>
-
-                <div class="panel-body form-horizontal">
-                    <!-- Address 1 Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="b_address">Address:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="b_address_1" placeholder="80 Shantivan Appartment"
-                                ng-model="newmember.work.address1">
-                        </div>
-                    </div>
-                    <!-- Address 2 Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="b_address_2"></label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="b_address_2" placeholder="kamrej, Opp Station"
-                                ng-model="newmember.work.address2">
-                        </div>
-                    </div>
-                    <!-- State Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="b_state">State:</label>
-                        <div class="col-lg-9">
-                            <select class="form-control" id="b_state" ng-model="newmember.work.state">
-                                <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- District Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="b_district">District:</label>
-                        <div class="col-lg-9">
-                            <select class="form-control" id="b_district" ng-model="newmember.work.district">
-                                <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- city Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="b_city">City:</label>
-                        <div class="col-lg-9">
-                            <select class="form-control" id="b_city" ng-model="newmember.work.city">
-                                <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Pincode Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-3" for="wp_code">Pincode:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" id="wp_code" placeholder="394081" ng-model="newmember.work.pincode">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-
-                <div class="panel-heading">
-                    Signing Person Details
-                </div>
-
-                <div class="panel-body form-horizontal">
-                    <!-- Signing Section -->
-                    <div class="row form-group">
-                        <label class="control-label col-lg-2" for="sign_name">Name :</label>
-                        <div class="col-lg-4">
-                            <input type="text" class="form-control" id="sign_name" placeholder="javed" ng-model="newmember.signname">
-                        </div>
-                        <label class="control-label col-lg-2" for="des_name">Designation :</label>
-                        <div class="col-lg-4">
-                            <input type="text" class="form-control" id="des_name" placeholder="manager" ng-model="newmember.desname">
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-10"></div>
-        <div class="col-lg-2">
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary" ng-click='addMember(newmember)'>Save</button>
-            </div>
-        </div>
-    </div>
-</div>
+</form>
