@@ -1,0 +1,344 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Members</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row" ng-controller="MemberCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    Jamat Details
+                </div>
+
+                <div class="panel-body form-horizontal">
+                    <!-- Member Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="member_id">Member Id:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="member_id" placeholder="Enter member id"
+                                ng-model="newmember.memberid">
+                        </div>
+                        <label class="control-label col-lg-2" for="Jamat_id">Jamat:</label>
+                        <div class="col-lg-4">
+                            <select class="form-control" id="Jamat_id" ng-model="newmember.jamatid">
+                                <option ng-repeat="jamat in jamats" value="{{jamat.id}}">{{jamat.name}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Personal details Section -->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    Personal Details
+                </div>
+
+                <div class="panel-body form-horizontal">
+
+                    <!-- First name Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="f_name">First Name:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="f_name" placeholder="Javed" ng-model="newmember.firstname">
+                        </div>
+                    </div>
+                    <!-- Middle name Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="m_name">Father Name:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="m_name" placeholder="Avis" ng-model="newmember.middlename">
+                        </div>
+                    </div>
+                    <!-- Last name Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="l_name">Surname:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="l_name" placeholder="Salat" ng-model="newmember.lastname">
+                        </div>
+                    </div>
+
+                    <!-- Gender Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="gender_group">Gender:</label>
+                        <div class="col-lg-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="gender_group" id="gender_group_opt_1" value="M" ng-model="newmember.gender">Male
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender_group" id="gender_group_opt_2" value="F" ng-model="newmember.gender">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Contact Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="contact_no">Contact No:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="contact_no" placeholder="9022578254" ng-model="newmember.contact">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="email_id">Email:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="email_id" placeholder="javed@example.com"
+                                ng-model="newmember.email">
+                        </div>
+                    </div>
+
+                    <!-- Aadhar Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="aadhar_card">Aadhar Card:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="aadhar_card" placeholder="1234-5678-9012-3456"
+                                ng-model="newmember.aadhar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    Personal Address
+                </div>
+
+                <div class="panel-body form-horizontal">
+                    <!-- Address 1 Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="p_address">Address:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="p_address_1" placeholder="102 Shantivan Appartment"
+                                ng-model="newmember.home.address1">
+                        </div>
+                    </div>
+                    <!-- Address 2 Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="p_address_2"></label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="p_address_2" placeholder="Jogeshwari, Opp Station"
+                                ng-model="newmember.home.address2">
+                        </div>
+                    </div>
+                    <!-- State Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="p_state">State:</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" id="p_state" ng-model="newmember.home.state">
+                                <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- District Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="p_district">District:</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" id="p_district" ng-model="newmember.home.">
+                                <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- city Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="p_city">City:</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" id="p_city" ng-model="newmember.home.city">
+                                <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Pincode Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="p_code">Pincode:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="p_code" placeholder="394180" ng-model="newmember.home.pincode">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Work details section -->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    Work Details
+                </div>
+
+                <div class="panel-body form-horizontal">
+
+                    <!-- Business  name Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="b_name">Business:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="b_name" placeholder="Symbuzz" ng-model="newmember.business">
+                        </div>
+                    </div>
+                    <!-- Business Discription Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="b_desc">Discription:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="b_desc" placeholder="software developer"
+                                ng-model="newmember.discription">
+                        </div>
+                    </div>
+                    <!-- Website Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="w_name">Website:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="w_name" placeholder="www.symbuzz.com" ng-model="newmember.website">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    Ownership Details
+                </div>
+
+                <div class="panel-body form-horizontal">
+
+                    <!-- Residence Ownership Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-6" for="h_owner">Residence Place Self Owned:</label>
+                        <div class="col-lg-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="h_owner_opt" id="h_owner_opt_1" value="Yes" ng-model="newmember.rown">Yes
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="h_owner_opt" id="h_owner_opt_2" value="No" ng-model="newmember.rown">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Business place Ownership Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-6" for="b_owner">Business Place Self Owned:</label>
+                        <div class="col-lg-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="b_owner_opt" id="b_owner_opt_1" value="Yes" ng-model="newmember.bown">Yes
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="b_owner_opt" id="b_owner_opt_2" value="No" ng-model="newmember.bown">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    Work Address
+                </div>
+
+                <div class="panel-body form-horizontal">
+                    <!-- Address 1 Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="b_address">Address:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="b_address_1" placeholder="80 Shantivan Appartment"
+                                ng-model="newmember.work.address1">
+                        </div>
+                    </div>
+                    <!-- Address 2 Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="b_address_2"></label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="b_address_2" placeholder="kamrej, Opp Station"
+                                ng-model="newmember.work.address2">
+                        </div>
+                    </div>
+                    <!-- State Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="b_state">State:</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" id="b_state" ng-model="newmember.work.state">
+                                <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- District Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="b_district">District:</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" id="b_district" ng-model="newmember.work.district">
+                                <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- city Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="b_city">City:</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" id="b_city" ng-model="newmember.work.city">
+                                <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Pincode Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="wp_code">Pincode:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="wp_code" placeholder="394081" ng-model="newmember.work.pincode">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    Signing Person Details
+                </div>
+
+                <div class="panel-body form-horizontal">
+                    <!-- Signing Section -->
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="sign_name">Name :</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="sign_name" placeholder="javed" ng-model="newmember.signname">
+                        </div>
+                        <label class="control-label col-lg-2" for="des_name">Designation :</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="des_name" placeholder="manager" ng-model="newmember.desname">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" ng-click='addMember(newmember)'>Save</button>
+            </div>
+        </div>
+    </div>
+</div>

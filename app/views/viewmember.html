@@ -1,0 +1,87 @@
+<!-- <div class="row">
+    <div class="col-lg-12">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                View Members
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <form role="form">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input class="form-control" ng-model='newviewmember.firstname'>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Father Name</label>
+                                <input class="form-control" ng-model='newviewmember.middlename'>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Surname</label>
+                                <input class="form-control" ng-model='newviewmember.surname'>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" ng-click='addViewmember(newViewmember)'>Save</button>
+                            </div>
+                        </div>
+                </div>
+                </form>
+            </div> -->
+<div class=" row">
+    <div class="col-lg-12">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                View Members
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Father Name</th>
+                                <th>Surname</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="viewmember in viewmembers">
+                                <td>{{$index + 1}}</td>
+                                <td>{{newviewmember.firstname}}</td>
+                                <td>{{newviewmember.middlename}}</td>
+                                <td>{{newviewmember.surname}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+    <!-- </tbody> -->
+    <!-- </table> -->
+</div>
+<!-- /.table-responsive -->
+<!-- </div>
+ /.panel-body -->
+<!-- </div> -->
+<!-- /.panel -->
+<!-- </div> -->
+<!-- /.col-lg-6 -->
+
+<!-- </div> -->
