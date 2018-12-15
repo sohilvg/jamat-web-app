@@ -5,56 +5,23 @@
     <!-- /.col-lg-12 -->
 </div>
 <div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Member Details
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <form role="form">
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <label>Jamat Name</label>
-                                <input class="form-control" ng-model='newJamat.name'>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <label>Jamat City</label>
-                                <input class="form-control" ng-model='newJamat.city'>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <label>Jamat State</label>
-                                <input class="form-control" ng-model='newJamat.state'>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" ng-click='addJamat(newJamat)'>Save</button>
-                            </div>
-                        </div>
-                </div>
-                </form>
-            </div>
-            <!-- /.row (nested) -->
+    <div class="col-lg-9"></div>
+    <div class="col-lg-3">
+        <div class="form-group input-group">
+            <input type="text" class="form-control" ng-model="searchText">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                </button>
+            </span>
         </div>
-        <!-- /.panel-body -->
     </div>
-    <!-- /.panel -->
-</div>
-<!-- /.col-lg-12 -->
 </div>
 <div class="row">
     <div class="col-lg-12">
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                All Jamats
+                Member Details
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -62,18 +29,22 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Member Id</th>
                                 <th>Name</th>
-                                <th>City</th>
-                                <th>State</th>
+                                <th>Jamat Name</th>
+                                <th>Bussiness</th>
+                                <th>Contact</th>
+                                <th>Signin Person</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="jamat in jamats">
-                                <td>{{$index + 1}}</td>
-                                <td>{{jamat.name}}</td>
-                                <td>{{jamat.city}}</td>
-                                <td>{{jamat.state}}</td>
+                            <tr ng-repeat="member in members | filter:searchText">
+                                <td>{{member.member_id}}</td>
+                                <td>{{member.name}}</td>
+                                <td>{{member.jamat_name}}</td>
+                                <td>{{member.occupation}}</td>
+                                <td>{{member.contact_no}}</td>
+                                <td>{{member.name_sign}}</td>
                             </tr>
                         </tbody>
                     </table>

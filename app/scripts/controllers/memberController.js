@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sbAdminApp')
-	.controller('MemberCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+	.controller('MemberCtrl', ['$scope', '$timeout', '$http', '$state', function ($scope, $timeout, $http, $state) {
 		$scope.getJamats = function () {
 			$http({ url: 'http://localhost:3000/jamat' }).then(function (successResponse) {
 				$scope.jamats = successResponse.data;
@@ -21,7 +21,7 @@ angular.module('sbAdminApp')
 		$scope.addMember = function (newMember) {
 
 			$http({ url: 'http://localhost:3000/member', method: 'POST', data: newMember }).then(function (successResponse) {
-				$scope.getMembers();
+				$state.go('dashboard.viewmember');
 				return successResponse;
 			}, function (errorResponse) {
 				return errorResponse
