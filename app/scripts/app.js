@@ -103,7 +103,16 @@ angular
       })
       .state('login', {
         templateUrl: 'views/pages/login.html',
-        url: '/login'
+        url: '/login',
+        controller: 'LoginCtrl',
+        resolve: {
+          loadMyFile: function ($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name: 'sbAdminApp',
+              files: ['scripts/controllers/loginController.js']
+            })
+          }
+        }
       })
       .state('dashboard.member', {
         templateUrl: 'views/member.html',
@@ -112,16 +121,22 @@ angular
         resolve: {
           loadMyFile: function ($ocLazyLoad) {
             return $ocLazyLoad.load({
-              // name: 'members.js',
-              // files: [
-              //   'bower_components/angular-chart.js/dist/angular-chart.min.js',
-              //   'bower_components/angular-chart.js/dist/angular-chart.css'
-              // ]
-            }),
-              $ocLazyLoad.load({
-                name: 'sbAdminApp',
-                files: ['scripts/controllers/memberController.js']
-              })
+              name: 'sbAdminApp',
+              files: ['scripts/controllers/memberController.js']
+            })
+          }
+        }
+      })
+      .state('dashboard.viewmember', {
+        templateUrl: 'views/viewmember.html',
+        url: '/viewmember',
+        controller: 'ViewmemberCtrl',
+        resolve: {
+          loadMyFile: function ($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name: 'sbAdminApp',
+              files: ['scripts/controllers/viewmemberController.js']
+            })
           }
         }
       })
@@ -137,31 +152,7 @@ angular
             })
           }
         }
-      })
-      .state('dashboard.panels-wells', {
-        templateUrl: 'views/ui-elements/panels-wells.html',
-        url: '/panels-wells'
-      })
-      .state('dashboard.buttons', {
-        templateUrl: 'views/ui-elements/buttons.html',
-        url: '/buttons'
-      })
-      .state('dashboard.notifications', {
-        templateUrl: 'views/ui-elements/notifications.html',
-        url: '/notifications'
-      })
-      .state('dashboard.typography', {
-        templateUrl: 'views/ui-elements/typography.html',
-        url: '/typography'
-      })
-      .state('dashboard.icons', {
-        templateUrl: 'views/ui-elements/icons.html',
-        url: '/icons'
-      })
-      .state('dashboard.grid', {
-        templateUrl: 'views/ui-elements/grid.html',
-        url: '/grid'
-      })
+      });
   }]);
 
 

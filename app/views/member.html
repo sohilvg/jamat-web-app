@@ -15,13 +15,14 @@
                         Jamat Details
                     </div>
 
+
                     <div class="panel-body form-horizontal">
                         <!-- Member Section -->
                         <div class="row form-group">
                             <label class="control-label col-lg-2" for="member_id">Member Id:</label>
                             <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.memberid.$invalid && !addMemberForm.memberid.$pristine }" >
                                 <input type="number" class="form-control" id="member_id" placeholder="Enter member id"
-                                    ng-model="newmember.memberid"  name="memberid" ng-required="true">
+                                    ng-model="newmember.member_id"  name="memberid" ng-required="true">
                                     <div ng-show="addMemberForm.memberid.$dirty && addMemberForm.memberid.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.memberid.$error.required">Tell us your Member Id.</span>
                                         <span ng-show="addMemberForm.memberid.$error.number ">The value is not a valid
@@ -40,6 +41,7 @@
                                     </div>
                                 </select> 
                             </div>
+
                         </div>
 
                     </div>
