@@ -20,26 +20,27 @@
                         <!-- Member Section -->
                         <div class="row form-group">
                             <label class="control-label col-lg-2" for="member_id">Member Id:</label>
-                            <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.memberid.$invalid && !addMemberForm.memberid.$pristine }" >
+                            <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.memberid.$invalid && !addMemberForm.memberid.$pristine }">
                                 <input type="number" class="form-control" id="member_id" placeholder="Enter member id"
-                                    ng-model="newmember.member_id"  name="memberid" ng-required="true">
-                                    <div ng-show="addMemberForm.memberid.$dirty && addMemberForm.memberid.$invalid" class="help-block">
-                                        <span ng-show="addMemberForm.memberid.$error.required">Tell us your Member Id.</span>
-                                        <span ng-show="addMemberForm.memberid.$error.number ">The value is not a valid
-                                            number !</span>
-                                        <span ng-show="addMemberForm.memberid.$error.min || addMemberForm.memberid.$error.max">
-                                            Contact must be in 10 digits!</span>
-                                            </div>
+                                    ng-model="newmember.member_id" name="memberid" ng-required="true">
+                                <div ng-show="addMemberForm.memberid.$dirty && addMemberForm.memberid.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.memberid.$error.required">Tell us your Member Id.</span>
+                                    <span ng-show="addMemberForm.memberid.$error.number ">The value is not a valid
+                                        number !</span>
+                                    <span ng-show="addMemberForm.memberid.$error.min || addMemberForm.memberid.$error.max">
+                                        Contact must be in 10 digits!</span>
+                                </div>
                             </div>
                             <label class="control-label col-lg-2" for="Jamat_id">Jamat:</label>
                             <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.select.$invalid && !addMemberForm.select.$pristine }">
-                                <select class="form-control" id="Jamat_id" ng-model="newmember.jamatid" name="select" ng-required="true">
+                                <select class="form-control" id="Jamat_id" ng-model="newmember.jamatid" name="select"
+                                    ng-required="true">
                                     <option ng-repeat="jamat in jamats" value="{{jamat.id}}">{{jamat.name}}</option>
                                     <option value="" disabled selected>Select Jamat</option>
                                     <div ng-show="addMemberForm.select.$dirty && addMemberForm.select.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.select.$error.required">Tell us your Jamat.</span>
                                     </div>
-                                </select> 
+                                </select>
                             </div>
 
                         </div>
@@ -112,7 +113,7 @@
                             <label class="control-label col-lg-3" for="contact_no">Contact No:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.mContact.$invalid && !addMemberForm.mContact.$pristine }">
                                 <input type="number" class="form-control" id="contact_no" min="1000000000" max="9999999999"
-                                    name="mContact" placeholder="9022578254" ng-model="newmember.contact"  ng-required="true">
+                                    name="mContact" placeholder="9022578254" ng-model="newmember.contact" ng-required="true">
                                 <div ng-show="addMemberForm.mContact.$dirty && addMemberForm.mContact.$invalid" class="help-block">
                                     <span ng-show="addMemberForm.mContact.$error.required">Tell us your Contact No.</span>
                                     <span ng-show="addMemberForm.mContact.$error.number ">The value is not a valid
@@ -141,13 +142,14 @@
                             <label class="control-label col-lg-3" for="aadhar_card">Aadhar Card:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.addhar.$invalid && !addMemberForm.addhar.$pristine }">
                                 <input type="number" class="form-control" id="aadhar_card" placeholder="1234-5678-9012-3456"
-                                    ng-model="newmember.aadhar" min="1000000000000000" max="9999999999999999" ng-required="true" name="addhar">
-                                    <div ng-show="addMemberForm.addhar.$dirty && addMemberForm.addhar.$invalid" class="help-block">
-                                        <span ng-show="addMemberForm.addhar.$error.required">Tell us your Aadhar Card.</span>
-                                        <span ng-show="addMemberForm.addhar.$error.number">This is not a valid  Aadhar Card.</span>
-                                        <span ng-show="addMemberForm.addhar.$error.min || addMemberForm.addhar.$error.max">
-                                            Contact must be in 16 digits!</span>
-                                    </div>
+                                    ng-model="newmember.aadhar" min="1000000000000000" max="9999999999999999"
+                                    ng-required="true" name="addhar">
+                                <div ng-show="addMemberForm.addhar.$dirty && addMemberForm.addhar.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.addhar.$error.required">Tell us your Aadhar Card.</span>
+                                    <span ng-show="addMemberForm.addhar.$error.number">This is not a valid Aadhar Card.</span>
+                                    <span ng-show="addMemberForm.addhar.$error.min || addMemberForm.addhar.$error.max">
+                                        Contact must be in 16 digits!</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -164,10 +166,10 @@
                             <label class="control-label col-lg-3" for="p_address">Address:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.address.$invalid && !addMemberForm.address.$pristine }">
                                 <input type="text" class="form-control" id="p_address_1" placeholder="102 Shantivan Appartment"
-                                    ng-model="newmember.home.address1"  ng-required="true" name="address">
-                                    <div ng-show="addMemberForm.address.$dirty && addMemberForm.address.$invalid" class="help-block">
-                                        <span ng-show="addMemberForm.address.$error.required">Tell us your Address.</span>
-                                    </div>
+                                    ng-model="newmember.home.address1" ng-required="true" name="address">
+                                <div ng-show="addMemberForm.address.$dirty && addMemberForm.address.$invalid" class="help-block">
+                                    <span ng-show="addMemberForm.address.$error.required">Tell us your Address.</span>
+                                </div>
                             </div>
                         </div>
                         <!-- Address 2 Section -->
@@ -182,7 +184,8 @@
                         <div class="row form-group">
                             <label class="control-label col-lg-3" for="p_state">State:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.state.$invalid && !addMemberForm.state.$pristine }">
-                                <select class="form-control" id="p_state" ng-model="newmember.home.state"  name="state" ng-required="true">
+                                <select class="form-control" id="p_state" ng-model="newmember.home.state" name="state"
+                                    ng-required="true">
                                     <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
                                     <option value="" disabled selected>Select State</option>
                                     <div ng-show="addMemberForm.state.$dirty && addMemberForm.state.$invalid" class="help-block">
@@ -195,10 +198,12 @@
                         <div class="row form-group">
                             <label class="control-label col-lg-3" for="p_district">District:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.district.$invalid && !addMemberForm.district.$pristine }">
-                                <select class="form-control" id="p_district" ng-model="newmember.home." name="district" ng-required="true"> 
+                                <select class="form-control" id="p_district" ng-model="newmember.home." name="district"
+                                    ng-required="true">
                                     <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}</option>
                                     <option value="" disabled selected>Select District</option>
-                                    <div ng-show="addMemberForm.district.$dirty && addMemberForm.district.$invalid" class="help-block">
+                                    <div ng-show="addMemberForm.district.$dirty && addMemberForm.district.$invalid"
+                                        class="help-block">
                                         <span ng-show="addMemberForm.district.$error.required">Tell us your District.</span>
                                     </div>
                                 </select>
@@ -208,7 +213,8 @@
                         <div class="row form-group">
                             <label class="control-label col-lg-3" for="p_city">City:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.city.$invalid && !addMemberForm.city.$pristine }">
-                                <select class="form-control" id="p_city" ng-model="newmember.home.city" name="city" ng-required="true">
+                                <select class="form-control" id="p_city" ng-model="newmember.home.city" name="city"
+                                    ng-required="true">
                                     <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
                                     <option value="" disabled selected>Select City</option>
                                     <div ng-show="addMemberForm.city.$dirty && addMemberForm.city.$invalid" class="help-block">
@@ -221,10 +227,12 @@
                         <div class="row form-group">
                             <label class="control-label col-lg-3" for="p_code">Pincode:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.pincode.$invalid && !addMemberForm.pincode.$pristine }">
-                                <input type="number" class="form-control" id="p_code" placeholder="394180" min="100000" max="666666" ng-model="newmember.home.pincode" ng-required="true" name="pincode">
+                                <input type="number" class="form-control" id="p_code" placeholder="394180" min="100000"
+                                    max="666666" ng-model="newmember.home.pincode" ng-required="true" name="pincode">
                                 <div ng-show="addMemberForm.pincode.$dirty && addMemberForm.pincode.$invalid" class="help-block">
                                     <span ng-show="addMemberForm.pincode.$error.required">Tell us your Pincode.</span>
-                                    <span ng-show="addMemberForm.pincode.$error.number ">The value is not a valid Pincode
+                                    <span ng-show="addMemberForm.pincode.$error.number ">The value is not a valid
+                                        Pincode
                                         number !</span>
                                     <span ng-show="addMemberForm.pincode.$error.min || addMemberForm.pincode.$error.max">
                                         Contact must be in 6 digits!</span>
@@ -249,7 +257,8 @@
                         <div class="row form-group">
                             <label class="control-label col-lg-3" for="b_name">Business:</label>
                             <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.business.$invalid && !addMemberForm.business.$pristine }">
-                                <input type="text" class="form-control" id="b_name" placeholder="Symbuzz" ng-model="newmember.business"  ng-required="true" name="business">
+                                <input type="text" class="form-control" id="b_name" placeholder="Symbuzz" ng-model="newmember.business"
+                                    ng-required="true" name="business">
                                 <div ng-show="addMemberForm.business.$dirty && addMemberForm.business.$invalid" class="help-block">
                                     <span ng-show="addMemberForm.business.$error.required">Tell us your name.</span>
                                 </div>
@@ -393,15 +402,18 @@
                         <div class="row form-group">
                             <label class="control-label col-lg-2" for="sign_name">Name :</label>
                             <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.name.$invalid && !addMemberForm.name.$pristine }">
-                                <input type="text" class="form-control" id="sign_name" placeholder="javed" ng-model="newmember.signname" ng-required="true" name="name">
+                                <input type="text" class="form-control" id="sign_name" placeholder="javed" ng-model="newmember.signname"
+                                    ng-required="true" name="name">
                                 <div ng-show="addMemberForm.name.$dirty && addMemberForm.name.$invalid" class="help-block">
                                     <span ng-show="addMemberForm.name.$error.required">Tell us your Name.</span>
                                 </div>
                             </div>
                             <label class="control-label col-lg-2" for="des_name">Designation :</label>
                             <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.designation.$invalid && !addMemberForm.designation.$pristine }">
-                                <input type="text" class="form-control" id="des_name" placeholder="manager" ng-model="newmember.desname" name="designation" ng-required="true">
-                                <div ng-show="addMemberForm.designation.$dirty && addMemberForm.designation.$invalid" class="help-block">
+                                <input type="text" class="form-control" id="des_name" placeholder="manager" ng-model="newmember.desname"
+                                    name="designation" ng-required="true">
+                                <div ng-show="addMemberForm.designation.$dirty && addMemberForm.designation.$invalid"
+                                    class="help-block">
                                     <span ng-show="addMemberForm.designation.$error.required">Tell us your Designation.</span>
                                 </div>
                             </div>
