@@ -15,7 +15,8 @@ angular.module('sbAdminApp')
 			rown: 'Yes',
 			bown: 'Yes',
 			gender: 'M',
-			bstate: 'Goa'
+			bstate: 'Goa',
+			// blood_group: 'AB+'
 		};
 
 		$scope.addMember = function (newMember) {

@@ -152,7 +152,73 @@ angular
             })
           }
         }
+      })
+      .state('dashboard.states', {
+        templateUrl: 'views/states.html',
+        controller: 'StatesCtrl',
+        url: '/states',
+        resolve: {
+          loadMyFile: function ($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name: 'sbAdminApp',
+              files: ['scripts/controllers/statesController.js']
+            })
+          }
+        }
+      })
+      .state('dashboard.cities', {
+        templateUrl: 'views/cities.html',
+        controller: 'CitiesCtrl',
+        url: '/cities',
+        resolve: {
+          loadMyFile: function ($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name: 'sbAdminApp',
+              files: ['scripts/controllers/citiesController.js']
+            })
+          }
+        }
+      })
+      .state('dashboard.zone', {
+        templateUrl: 'views/zone.html',
+        controller: 'ZoneCtrl',
+        url: '/zone',
+        resolve: {
+          loadMyFile: function ($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name: 'sbAdminApp',
+              files: ['scripts/controllers/zoneController.js']
+            })
+          }
+        }
+      })
+      .state('dashboard.jamatid', {
+        templateUrl: 'views/jamatid.html',
+        controller: 'JamatidCtrl',
+        url: '/jamatid',
+        resolve: {
+          loadMyFile: function ($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name: 'sbAdminApp',
+              files: ['scripts/controllers/jamatidController.js']
+            })
+          }
+        }
       });
+    var app = angular.module('myApp', []);
+    app.controller('inspectionController', function ($scope, $http) {
+      $scope.choiceSet = {
+        choices: []
+      };
+      $scope.quest = {};
+      $scope.choiceSet.choices = [];
+      $scope.addNewChoice = function () {
+        $scope.choiceSet.choices.push('');
+      };
+      $scope.removeChoice = function (z) {
+        $scope.choiceSet.choices.splice(z, 1);
+      };
+    });
   }]);
 
 

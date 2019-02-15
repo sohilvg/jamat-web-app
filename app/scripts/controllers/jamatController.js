@@ -15,6 +15,7 @@ angular.module('sbAdminApp')
 
 		$scope.newJamat = {
 			city: '',
+			jamat_code: '',
 			name: '',
 			state: ''
 		};
@@ -27,7 +28,7 @@ angular.module('sbAdminApp')
 				return errorResponse
 			});
 		};
-
+		
 		$scope.getState = function () {
 			$http({ url: 'http://localhost:3000/state' }).then(function (successResponse) {
 				$scope.states = successResponse.data;

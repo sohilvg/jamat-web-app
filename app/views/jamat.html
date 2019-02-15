@@ -14,7 +14,16 @@
                 <div class="panel-body">
                     <div class="row">
                         <form role="form">
-                            <div class="col-lg-4" ng-class="{ 'has-error' : addjamat.jamat.$invalid && !addjamat.jamat.$pristine }">
+                                <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.jamat_code.$invalid && !addjamat.jamat_code.$pristine }">
+                                        <div class="form-group">
+                                            <label>Jamat Code</label>
+                                            <input class="form-control" ng-model='newJamat.jamat_code' ng-required="true" name="jamat_code">
+                                            <div ng-show="addjamat.jamat_code.$dirty && addjamat.jamat.$invalid" class="help-block">
+                                                <span ng-show="addjamat.jamat_code.$error.required">Tell us jamat code.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.jamat.$invalid && !addjamat.jamat.$pristine }">
                                 <div class="form-group">
                                     <label>Jamat Name</label>
                                     <input class="form-control" ng-model='newJamat.name' ng-required="true" name="jamat">
@@ -24,7 +33,7 @@
                                 </div>
                             </div>
                             <!-- city Section -->
-                            <div class="col-lg-4" ng-class="{ 'has-error' : addjamat.city.$invalid && !addjamat.city.$pristine }">
+                            <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.city.$invalid && !addjamat.city.$pristine }">
                                 <div class="form-group">
                                     <label>Jamat City</label>
                                     <select class="form-control" id="b_city" ng-model="newJamat.city">
@@ -36,7 +45,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4" ng-class="{ 'has-error' : addjamat.state.$invalid && !addjamat.state.$pristine }">
+                            <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.state.$invalid && !addjamat.state.$pristine }">
                                 <div class="form-group">
                                     <label>Jamat State</label>
                                     <select class="form-control" id="b_state" ng-model="newJamat.state">
