@@ -10,21 +10,5 @@ angular.module('sbAdminApp')
                 return errorResponse
             });
         };
-        $scope.newZone = {
-            name: '',
-            code: ''
-        };
-
-        $scope.getCode = function () {
-            $http({ url: 'http://localhost:3000/code' }).then(function (successResponse) {
-                $scope.codes = successResponse.data;
-                return successResponse;
-            }, function (errorResponse) {
-                return errorResponse
-            });
-        };
-
-
-        // $scope.getCode();
 
     }]);

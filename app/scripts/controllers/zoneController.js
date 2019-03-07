@@ -13,8 +13,8 @@ angular.module('sbAdminApp')
             });
         };
         $scope.newZone = {
-            name: '',
-            code: ''
+            name: 'name',
+            code: 'code'
         };
 
 

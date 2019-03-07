@@ -27,29 +27,25 @@
                             <!-- Member Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-2" for="member_id">Member Id:</label>
-                                <div class="col-lg-4"
-                                    ng-class="{ 'has-error' : addMemberForm.memberid.$invalid && !addMemberForm.memberid.$pristine }">
-                                    <input type="number" class="form-control" id="member_id"
-                                        placeholder="Enter member id" ng-model="newmember.member_id" name="memberid"
-                                        ng-required="true">
+                                <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.memberid.$invalid && !addMemberForm.memberid.$pristine }">
+                                    <input type="number" class="form-control" id="member_id" placeholder="Enter member id"
+                                        ng-model="newmember.member_id" name="memberid" ng-required="true">
                                     <div ng-show="addMemberForm.memberid.$dirty && addMemberForm.memberid.$invalid"
                                         class="help-block">
                                         <span ng-show="addMemberForm.memberid.$error.required">Tell us your Member
                                             Id.</span>
                                         <span ng-show="addMemberForm.memberid.$error.number ">The value is not a valid
                                             number !</span>
-                                        <span
-                                            ng-show="addMemberForm.memberid.$error.min || addMemberForm.memberid.$error.max">
+                                        <span ng-show="addMemberForm.memberid.$error.min || addMemberForm.memberid.$error.max">
                                             Contact must be in 10 digits!</span>
                                     </div>
                                 </div>
                                 <label class="control-label col-lg-2" for="Jamat_id">Jamat:</label>
-                                <div class="col-lg-4"
-                                    ng-class="{ 'has-error' : addMemberForm.select.$invalid && !addMemberForm.select.$pristine }">
-                                    <select class="form-control" id="Jamat_id" ng-model="newmember.jamatid"
-                                        name="select" ng-required="true">
+                                <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.select.$invalid && !addMemberForm.select.$pristine }">
+                                    <select class="form-control" id="Jamat_id" ng-model="newmember.jamatid" name="select"
+                                        ng-required="true">
                                         <option ng-repeat="jamat in jamats" value="{{jamat.id}}">{{jamat.name}}</option>
-                                        <option value="" disabled selected>Select Jamat</option>
+                                        <option value="disabled selected">Select Jamat</option>
                                         <div ng-show="addMemberForm.select.$dirty && addMemberForm.select.$invalid"
                                             class="help-block">
                                             <span ng-show="addMemberForm.select.$error.required">Tell us your
@@ -78,12 +74,10 @@
                             <!-- First name Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="f_name">First Name:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.mname.$invalid && !addMemberForm.mname.$pristine }">
-                                    <input type="text" class="form-control" id="f_name" placeholder="Javed"
-                                        ng-model="newmember.firstname" name="mname" ng-required="true">
-                                    <div ng-show="addMemberForm.mname.$dirty && addMemberForm.mname.$invalid"
-                                        class="help-block">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.mname.$invalid && !addMemberForm.mname.$pristine }">
+                                    <input type="text" class="form-control" id="f_name" placeholder="Javed" ng-model="newmember.firstname"
+                                        name="mname" ng-required="true">
+                                    <div ng-show="addMemberForm.mname.$dirty && addMemberForm.mname.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.mname.$error.required">Tell us your name.</span>
                                     </div>
                                 </div>
@@ -91,12 +85,10 @@
                             <!-- Middle name Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="m_name">Father Name:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.father.$invalid && !addMemberForm.father.$pristine }">
-                                    <input type="text" class="form-control" id="m_name" placeholder="Avis"
-                                        ng-model="newmember.middlename" name="father" ng-required="true">
-                                    <div ng-show="addMemberForm.father.$dirty && addMemberForm.father.$invalid"
-                                        class="help-block">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.father.$invalid && !addMemberForm.father.$pristine }">
+                                    <input type="text" class="form-control" id="m_name" placeholder="Avis" ng-model="newmember.middlename"
+                                        name="father" ng-required="true">
+                                    <div ng-show="addMemberForm.father.$dirty && addMemberForm.father.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.father.$error.required">Tell us your Father
                                             Name.</span>
                                     </div>
@@ -105,12 +97,10 @@
                             <!-- Last name Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="l_name">Surname:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.sur.$invalid && !addMemberForm.sur.$pristine }">
-                                    <input type="text" class="form-control" id="l_name" placeholder="Salat"
-                                        ng-model="newmember.lastname" name="sur" ng-required="true">
-                                    <div ng-show="addMemberForm.sur.$dirty && addMemberForm.sur.$invalid"
-                                        class="help-block">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.sur.$invalid && !addMemberForm.sur.$pristine }">
+                                    <input type="text" class="form-control" id="l_name" placeholder="Salat" ng-model="newmember.lastname"
+                                        name="sur" ng-required="true">
+                                    <div ng-show="addMemberForm.sur.$dirty && addMemberForm.sur.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.sur.$error.required">Tell us your Surname.</span>
                                     </div>
                                 </div>
@@ -122,11 +112,9 @@
                                 <div class="col-lg-9">
                                     <label class="radio-inline">
                                     </label>
-                                    <input type="radio" name="gender_group" id="gender_group_opt_1" value="M"
-                                        ng-model="newmember.gender">Male
+                                    <input type="radio" name="gender_group" id="gender_group_opt_1" value="M" ng-model="newmember.gender">Male
                                     <label class="radio-inline"></label>
-                                    <input type="radio" name="gender_group" id="gender_group_opt_2" value="F"
-                                        ng-model="newmember.gender">
+                                    <input type="radio" name="gender_group" id="gender_group_opt_2" value="F" ng-model="newmember.gender">
                                     Female
 
                                 </div>
@@ -136,8 +124,8 @@
                                 <label class="control-label col-lg-3" for="l_name">Blood Group:</label>
                                 <div class="col-lg-3">
                                     <!-- <input class="form-control" ng-model="newmember.blood_group" value="AB+" ng-model="newmember.blood_group"> -->
-                                    <select class="form-control" id="blood_group" ng-model="newmember.blood_group"
-                                        name="select" ng-required="true">
+                                    <select class="form-control" id="blood_group" ng-model="newmember.blood_group" name="select"
+                                        ng-required="true">
                                         <option value=" A+">A+</option>
                                         <option value="A-">A-</option>
                                         <option value="B+">B+</option>
@@ -154,11 +142,10 @@
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="contact_no">Contact No:</label>
                                 <div class="row">
-                                    <div class="col-lg-4"
-                                        ng-class="{ 'has-error' : addMemberForm.mContact.$invalid && !addMemberForm.mContact.$pristine }">
-                                        <input type="number" class="form-control" id="contact_no" min="1000000000"
-                                            max="9999999999" name="mContact" placeholder="9022578254"
-                                            ng-model="newmember.contact" ng-required="true">
+                                    <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.mContact.$invalid && !addMemberForm.mContact.$pristine }">
+                                        <input type="number" class="form-control" id="contact_no" min="1000000000" max="9999999999"
+                                            name="mContact" placeholder="9022578254" ng-model="newmember.contact_no"
+                                            ng-required="true">
 
                                         <div ng-show="addMemberForm.mContact.$dirty && addMemberForm.mContact.$invalid"
                                             class="help-block">
@@ -167,28 +154,23 @@
                                             <span ng-show="addMemberForm.mContact.$error.number ">The value is not a
                                                 valid
                                                 number !</span>
-                                            <span
-                                                ng-show="addMemberForm.mContact.$error.min || addMemberForm.mContact.$error.max">
+                                            <span ng-show="addMemberForm.mContact.$error.min || addMemberForm.mContact.$error.max">
                                                 Contact must be in 10 digits!</span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4"
-                                        ng-class="{ 'has-error' : addMemberForm.mContact_2.$invalid && !addMemberForm.mContact_2.$pristine }">
+                                    <div class="col-lg-4" ng-class="{ 'has-error' : addMemberForm.mContact_2.$invalid && !addMemberForm.mContact_2.$pristine }">
                                         <input type="number" class="form-control" id="contact_no_2" min="1000000000"
-                                            max="9999999999" name="mContact_2" placeholder="9925483578"
-                                            ng-model="newmember.contact_2">
+                                            max="9999999999" name="mContact_2" placeholder="9925483578" ng-model="newmember.contact_2">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="email_id">Email:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.mEmail.$invalid && !addMemberForm.mEmail.$pristine }">
-                                    <input type="email" name="mEmail" class="form-control" id="email_id"
-                                        placeholder="javed@example.com" ng-model="newmember.email" ng-required="true">
-                                    <div ng-show="addMemberForm.mEmail.$dirty && addMemberForm.mEmail.$invalid"
-                                        class="help-block">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.mEmail.$invalid && !addMemberForm.mEmail.$pristine }">
+                                    <input type="email" name="mEmail" class="form-control" id="email_id" placeholder="javed@example.com"
+                                        ng-model="newmember.email" ng-required="true">
+                                    <div ng-show="addMemberForm.mEmail.$dirty && addMemberForm.mEmail.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.mEmail.$error.required">Tell us your email.</span>
                                         <span ng-show="addMemberForm.mEmail.$error.email">This is not a valid
                                             email.</span>
@@ -199,19 +181,15 @@
                             <!-- Aadhar Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="aadhar_card">Aadhar Card:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.addhar.$invalid && !addMemberForm.addhar.$pristine }">
-                                    <input type="number" class="form-control" id="aadhar_card"
-                                        placeholder="1234-5678-9012-3456" ng-model="newmember.aadhar"
-                                        min="1000000000000000" max="9999999999999999" name="addhar">
-                                    <div ng-show="addMemberForm.addhar.$dirty && addMemberForm.addhar.$invalid"
-                                        class="help-block">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.addhar.$invalid && !addMemberForm.addhar.$pristine }">
+                                    <input type="number" class="form-control" id="aadhar_card" placeholder="1234-5678-9012-3456"
+                                        ng-model="newmember.aadhar" min="1000000000000000" max="9999999999999999" name="addhar">
+                                    <div ng-show="addMemberForm.addhar.$dirty && addMemberForm.addhar.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.addhar.$error.required">Tell us your Aadhar
                                             Card.</span>
                                         <span ng-show="addMemberForm.addhar.$error.number">This is not a valid Aadhar
                                             Card.</span>
-                                        <span
-                                            ng-show="addMemberForm.addhar.$error.min || addMemberForm.addhar.$error.max">
+                                        <span ng-show="addMemberForm.addhar.$error.min || addMemberForm.addhar.$error.max">
                                             Contact must be in 16 digits!</span>
                                     </div>
                                 </div>
@@ -228,13 +206,10 @@
                             <!-- Address 1 Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="p_address">Address:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.address.$invalid && !addMemberForm.address.$pristine }">
-                                    <input type="text" class="form-control" id="p_address_1"
-                                        placeholder="102 Shantivan Appartment" ng-model="newmember.home.address1"
-                                        ng-required="true" name="address">
-                                    <div ng-show="addMemberForm.address.$dirty && addMemberForm.address.$invalid"
-                                        class="help-block">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.address.$invalid && !addMemberForm.address.$pristine }">
+                                    <input type="text" class="form-control" id="p_address_1" placeholder="102 Shantivan Appartment"
+                                        ng-model="newmember.home.address1" ng-required="true" name="address">
+                                    <div ng-show="addMemberForm.address.$dirty && addMemberForm.address.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.address.$error.required">Tell us your
                                             Address.</span>
                                     </div>
@@ -244,21 +219,19 @@
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="p_address_2"></label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="p_address_2"
-                                        placeholder="Jogeshwari, Opp Station" ng-model="newmember.home.address2">
+                                    <input type="text" class="form-control" id="p_address_2" placeholder="Jogeshwari, Opp Station"
+                                        ng-model="newmember.home.address2">
                                 </div>
                             </div>
                             <!-- State Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="p_state">State:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.state.$invalid && !addMemberForm.state.$pristine }">
-                                    <select class="form-control" id="p_state" ng-model="newmember.home.state"
-                                        name="state" ng-required="true">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.state.$invalid && !addMemberForm.state.$pristine }">
+                                    <select class="form-control" id="p_state" ng-model="newmember.home.state" name="state"
+                                        ng-required="true">
                                         <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
-                                        <option value="" disabled selected>Select State</option>
-                                        <div ng-show="addMemberForm.state.$dirty && addMemberForm.state.$invalid"
-                                            class="help-block">
+                                        <option value=" disabled selected">Select State</option>
+                                        <div ng-show="addMemberForm.state.$dirty && addMemberForm.state.$invalid" class="help-block">
                                             <span ng-show="addMemberForm.state.$error.required">Tell us your
                                                 State.</span>
                                         </div>
@@ -268,32 +241,29 @@
                             <!-- District Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="p_district">District:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.district.$invalid && !addMemberForm.district.$pristine }">
-                                    <select class="form-control" id="p_district" ng-model="newmember.home."
-                                        name="district" ng-required="true">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.district.$invalid && !addMemberForm.district.$pristine }">
+                                    <select class="form-control" id="p_district" ng-model="newmember.home." name="district"
+                                        ng-required="true">
                                         <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}
                                         </option>
-                                        <option value="" disabled selected>Select District</option>
-                                        <div ng-show="addMemberForm.district.$dirty && addMemberForm.district.$invalid"
-                                            class="help-block">
-                                            <span ng-show="addMemberForm.district.$error.required">Tell us your
-                                                District.</span>
-                                        </div>
+                                        <option value=" disabled selected">Select District</optawion>
+                                            <div ng-show="addMemberForm.district.$dirty && addMemberForm.district.$invalid"
+                                                class="help-block">
+                                                <span ng-show="addMemberForm.district.$error.required">Tell us your
+                                                    District.</span>
+                                            </div>
                                     </select>
                                 </div>
                             </div>
                             <!-- city Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="p_city">City:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.city.$invalid && !addMemberForm.city.$pristine }">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.city.$invalid && !addMemberForm.city.$pristine }">
                                     <select class="form-control" id="p_city" ng-model="newmember.home.city" name="city"
                                         ng-required="true">
                                         <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
-                                        <option value="" disabled selected>Select City</option>
-                                        <div ng-show="addMemberForm.city.$dirty && addMemberForm.city.$invalid"
-                                            class="help-block">
+                                        <option value=" disabled selected">Select City</option>
+                                        <div ng-show="addMemberForm.city.$dirty && addMemberForm.city.$invalid" class="help-block">
                                             <span ng-show="addMemberForm.city.$error.required">Tell us your
                                                 District.</span>
                                         </div>
@@ -303,20 +273,16 @@
                             <!-- Pincode Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="p_code">Pincode:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.pincode.$invalid && !addMemberForm.pincode.$pristine }">
-                                    <input type="number" class="form-control" id="p_code" placeholder="394180"
-                                        min="100000" max="666666" ng-model="newmember.home.pincode" ng-required="true"
-                                        name="pincode">
-                                    <div ng-show="addMemberForm.pincode.$dirty && addMemberForm.pincode.$invalid"
-                                        class="help-block">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.pincode.$invalid && !addMemberForm.pincode.$pristine }">
+                                    <input type="number" class="form-control" id="p_code" placeholder="394180" min="100000"
+                                        max="666666" ng-model="newmember.home.pincode" ng-required="true" name="pincode">
+                                    <div ng-show="addMemberForm.pincode.$dirty && addMemberForm.pincode.$invalid" class="help-block">
                                         <span ng-show="addMemberForm.pincode.$error.required">Tell us your
                                             Pincode.</span>
                                         <span ng-show="addMemberForm.pincode.$error.number ">The value is not a valid
                                             Pincode
                                             number !</span>
-                                        <span
-                                            ng-show="addMemberForm.pincode.$error.min || addMemberForm.pincode.$error.max">
+                                        <span ng-show="addMemberForm.pincode.$error.min || addMemberForm.pincode.$error.max">
                                             Contact must be in 6 digits!</span>
                                     </div>
                                 </div>
@@ -338,12 +304,11 @@
                             <!-- Business  name Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="b_name">Catagory:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.catagory.$invalid && !addMemberForm.catagory.$pristine }">
-                                    <select class="form-control" id="p_catagory" ng-model="newmember.catagory"
-                                        name="catagory" ng-required="">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.catagory.$invalid && !addMemberForm.catagory.$pristine }">
+                                    <select class="form-control" id="p_catagory" ng-model="newmember.catagory" name="catagory"
+                                        ng-required="">
                                         <option ng-repeat="c in cities" value="{{c.business}}">{{c.business}}</option>
-                                        <option value="" disabled selected>Select Catagory</option>
+                                        <option value=" disabled selected">Select Catagory</option>
                                         <div ng-show="addMemberForm.catagory.$dirty && addMemberForm.catagory.$invalid"
                                             class="help-block">
                                             <span ng-show="addMemberForm.catagory.$error.required">Tell us your
@@ -355,10 +320,9 @@
                             </div>
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="b_name">Business:</label>
-                                <div class="col-lg-9"
-                                    ng-class="{ 'has-error' : addMemberForm.business.$invalid && !addMemberForm.business.$pristine }">
-                                    <input type="text" class="form-control" id="b_name" placeholder="Symbuzz"
-                                        ng-model="newmember.business" ng-required="true" name="business">
+                                <div class="col-lg-9" ng-class="{ 'has-error' : addMemberForm.business.$invalid && !addMemberForm.business.$pristine }">
+                                    <input type="text" class="form-control" id="b_name" placeholder="Symbuzz" ng-model="newmember.business"
+                                        ng-required="true" name="business">
                                     <div ng-show="addMemberForm.business.$dirty && addMemberForm.business.$invalid"
                                         class="help-block">
                                         <span ng-show="addMemberForm.business.$error.required">Tell us your
@@ -399,12 +363,10 @@
                                 <label class="control-label col-lg-6" for="h_owner">Residence Place Self Owned:</label>
                                 <div class="col-lg-6">
                                     <label class="radio-inline">
-                                        <input type="radio" name="h_owner_opt" id="h_owner_opt_1" value="Yes"
-                                            ng-model="newmember.rown">Yes
+                                        <input type="radio" name="h_owner_opt" id="h_owner_opt_1" value="Yes" ng-model="newmember.rown">Yes
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" name="h_owner_opt" id="h_owner_opt_2" value="No"
-                                            ng-model="newmember.rown">
+                                        <input type="radio" name="h_owner_opt" id="h_owner_opt_2" value="No" ng-model="newmember.rown">
                                         No
                                     </label>
                                 </div>
@@ -415,12 +377,10 @@
                                 <label class="control-label col-lg-6" for="b_owner">Business Place Self Owned:</label>
                                 <div class="col-lg-6">
                                     <label class="radio-inline">
-                                        <input type="radio" name="b_owner_opt" id="b_owner_opt_1" value="Yes"
-                                            ng-model="newmember.bown">Yes
+                                        <input type="radio" name="b_owner_opt" id="b_owner_opt_1" value="Yes" ng-model="newmember.bown">Yes
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" name="b_owner_opt" id="b_owner_opt_2" value="No"
-                                            ng-model="newmember.bown">
+                                        <input type="radio" name="b_owner_opt" id="b_owner_opt_2" value="No" ng-model="newmember.bown">
                                         No
                                     </label>
                                 </div>
@@ -447,16 +407,16 @@
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="b_address">Address:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="b_address_1"
-                                        placeholder="80 Shantivan Appartment" ng-model="newmember.work.address1">
+                                    <input type="text" class="form-control" id="b_address_1" placeholder="80 Shantivan Appartment"
+                                        ng-model="newmember.work.address1">
                                 </div>
                             </div>
                             <!-- Address 2 Section -->
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="b_address_2"></label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="b_address_2"
-                                        placeholder="kamrej, Opp Station" ng-model="newmember.work.address2">
+                                    <input type="text" class="form-control" id="b_address_2" placeholder="kamrej, Opp Station"
+                                        ng-model="newmember.work.address2">
                                 </div>
                             </div>
                             <!-- State Section -->
@@ -465,7 +425,7 @@
                                 <div class="col-lg-9">
                                     <select class="form-control" id="b_state" ng-model="newmember.work.state">
                                         <option ng-repeat="st in states" value="{{st.state}}">{{st.state}}</option>
-                                        <option value="" disabled selected>Select State</option>
+                                        <option value=" disabled selected">Select State</option>
                                     </select>
                                 </div>
                             </div>
@@ -476,7 +436,7 @@
                                     <select class="form-control" id="b_district" ng-model="newmember.work.district">
                                         <option ng-repeat="d in districts" value="{{d.district}}">{{d.district}}
                                         </option>
-                                        <option value="" disabled selected>Select District</option>
+                                        <option value=" disabled selected">Select District</option>
                                     </select>
                                 </div>
                             </div>
@@ -494,8 +454,7 @@
                             <div class="row form-group">
                                 <label class="control-label col-lg-3" for="wp_code">Pincode:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="wp_code" placeholder="394081"
-                                        ng-model="newmember.work.pincode">
+                                    <input type="text" class="form-control" id="wp_code" placeholder="394081" ng-model="newmember.work.pincode">
                                 </div>
                             </div>
 
@@ -503,149 +462,260 @@
                     </div>
                 </div>
             </div>
+
+            <!-- family members section -->
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Enter Family
                         </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <form role="form">
-                                    <div class="col-lg-4"
-                                        ng-class="{ 'has-error' : addmember.f_name.$invalid && !addmember.f_name.$pristine }">
-                                        <div class="form-group">
-                                            <label> Name</label>
-                                            <input class="form-control" ng-model='newJamat.f_name' ng-required="true"
-                                                name="f_name">
-                                            <div ng-show="addmember.f_name.$dirty && addjamat.f_name.$invalid"
-                                                class="help-block">
-                                                <span ng-show="addjamat.f_name.$error.required">Tell us family member
-                                                    name.</span>
-                                            </div>
+                    </div>
+                </div>
+                <input ng-model="myNumber" type="text" placeholder="No.of Members" />
+
+                <form ng-repeat="i in range(myNumber) track by $index">
+                </form>
+                <input ng-model="myNumber" type="text" placeholder="No.of Members" />
+
+
+                <form ng-repeat="i in range(myNumber) track by $index">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <div class="col-lg-4" ng-class="{ 'has-error' : addmember.f_name.$invalid && !addmember.f_name.$pristine }">
+                                    <div class="form-group">
+                                        <label> Name</label>
+                                        <input class="form-control" ng-model='newmember.f_name' ng-required="true" name="f_name">
+                                        <div ng-show="addmember.f_name.$dirty && addmember.f_name.$invalid" class="help-block">
+                                            <span ng-show="addmember.f_name.$error.required">Tell
+                                                us family
+                                                member
+                                                name.</span>
                                         </div>
                                     </div>
-                                    <!-- age of family Section -->
-                                    <div class="col-lg-1"
-                                        ng-class="{ 'has-error' : addMemberForm.age.$invalid && !addMemberForm.age.$pristine }">
-                                        <div class="form-group">
-                                            <label>Age</label>
-                                            <input type="number" class="form-control" id="age" min="01" max="150"
-                                                name="age" placeholder="18" ng-model="newmember.age" ng-required="true">
+                                </div>
+                                <div class="col-lg-1" ng-class="{ 'has-error' : addMemberForm.age.$invalid && !addMemberForm.age.$pristine }">
+                                    <div class="form-group">
+                                        <label>Age</label>
+                                        <input type="number" class="form-control" id="age" min="01" max="150" name="age"
+                                            placeholder="18" ng-model="newmember.age" ng-required="true">
 
-                                            <div ng-show="addmember.age.$dirty && addmember.age.$invalid"
-                                                class="help-block">
-                                                <span ng-show="addmember.age.$error.required">Tell us age of member
-                                                </span>
-                                            </div>
+                                        <div ng-show="addmember.age.$dirty && addmember.age.$invalid" class="help-block">
+                                            <span ng-show="addmember.age.$error.required">Tell
+                                                us age of
+                                                member
+                                            </span>
                                         </div>
                                     </div>
-
-                                    <!-- Sex of family section -->
-
-                                    <div class="col-lg-1"
-                                        ng-class="{ 'has-error' : addmember.sex.$invalid && !addmember.sex.$pristine }">
-                                        <div class="form-group">
-                                            <label>Sex</label>
-                                            <!-- <select class="form-control" id="b_state" ng-model="newJamat.state">
-                                                <option ng-repeat="c in states" value="{{c.state}}">{{c.state}}</option>
-                                                <option value="" disabled selected>Select State</option>
-                                            </select> -->
-                                            <select class="form-control" id="sex" ng-model="newmember.sex" name="select"
-                                                ng-required="true">
-                                                <option value="" disabled selected>Select sex</option>
-                                                <option value="m">Male</option>
-                                                <option value="f">Female</option>
-                                                <option value="o">Other</option>
-                                            </select>
-                                            <div ng-show="addmember.sex.$dirty && addmember.sex.$invalid"
-                                                class="help-block">
-                                                <span ng-show="addmember.sex.$error.required">Tell us
-                                                    sex.</span>
-                                            </div>
+                                </div>
+                                <div class="col-lg-1" ng-class="{ 'has-error' : addmember.sex.$invalid && !addmember.sex.$pristine }">
+                                    <div class="form-group">
+                                        <label>Sex</label>
+                                        <select class="form-control" id="sex" ng-model="newmember.sex" name="select"
+                                            ng-required="true">
+                                            <option value="disabled selected">Select sex</option>
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
+                                            <option value="O">Other</option>
+                                        </select>
+                                        <div ng-show="addmember.sex.$dirty && addmember.sex.$invalid" class="help-block">
+                                            <span ng-show="addmember.sex.$error.required">Tell
+                                                us
+                                                sex.</span>
                                         </div>
                                     </div>
-
-                                    <!-- blood group of family section -->
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label>Blood Group</label>
-                                            <!-- <select class="form-control" id="b_group" ng-model="addmember.b_group">
-                                                <option ng-repeat="c in b_group" value="{{c.b_group}}">{{c.b_group}}
-                                                </option>
-                                                <option value="" disabled selected>Select State</option>
-                                            </select> -->
-                                            <select class="form-control" id="blood_group"
-                                                ng-model="newmember.blood_group" name="select" ng-required="true">
-                                                <option value="" disabled selected>Select Blood Group</option>
-                                                <option value=" A+">A+</option>
-                                                <option value="A-">A-</option>
-                                                <option value="B+">B+</option>
-                                                <option value="B-">B-</option>
-                                                <option value="O+">O+</option>
-                                                <option value="O-">O-</option>
-                                                <option value="AB+">AB+</option>
-                                                <option value="AB-">AB-</option>
-                                            </select>
-                                            <!-- <div ng-show="addmember.b_group.$dirty && addmember.b_group.$invalid"
-                                                class="help-block">
-                                                <span ng-show="addmember.b_group.$error.required">blood group.</span>
-                                            </div> -->
-
-                                        </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <label>Blood Group</label>
+                                        <select class="form-control" id="blood_group" ng-model="newmember.blood_group"
+                                            name="blood_group" ng-required="true">
+                                            <option value="disabled selected">Select Blood
+                                                Group</option>
+                                            <option value=" A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                        </select>
                                     </div>
-                                    <div class="col-lg-2" ng-class="{ 'has-error' : addmember.qualification.$invalid &&
-                                        !addmember.qualification.$pristine }">
-                                        <div class="form-group">
-                                            <label> Qualification</label>
-                                            <input class="form-control" ng-model='newJamat.qualification'
-                                                ng-required="true" name="qualification">
-                                            <div ng-show="addmember.qualification.$dirty && addjamat.qualification.$invalid"
-                                                class="help-block">
-                                                <span ng-show="addjamat.qualification.$error.required">Tell us family
-                                                    member
-                                                    qualification.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-2"
-                                        ng-class="{ 'has-error' : addMemberForm.mContact.$invalid && !addMemberForm.mContact.$pristine }">
-                                        <label>Contact No</label>
-                                        <input type="number" class="form-control" id="contact_no" min="1000000000"
-                                            max="9999999999" name="mContact" placeholder="9022578254"
-                                            ng-model="newmember.contact" ng-required="true">
-
-                                        <div ng-show="addMemberForm.mContact.$dirty && addMemberForm.mContact.$invalid"
+                                </div>
+                                <div class="col-lg-2" ng-class="{ 'has-error' : addmember.qualification.$invalid &&
+                    !addmember.qualification.$pristine }">
+                                    <div class="form-group">
+                                        <label> Qualification</label>
+                                        <input class="form-control" ng-model='newmember.qualification' ng-required="true"
+                                            name="qualification">
+                                        <div ng-show="addmember.qualification.$dirty && addmember.qualification.$invalid"
                                             class="help-block">
-                                            <span ng-show="addMemberForm.mContact.$error.required">Tell us your Contact
-                                                No.</span>
-                                            <span ng-show="addMemberForm.mContact.$error.number ">The value is not a
-                                                valid
-                                                number !</span>
-                                            <span
-                                                ng-show="addMemberForm.mContact.$error.min || addMemberForm.mContact.$error.max">
-                                                Contact must be in 10 digits!</span>
+                                            <span ng-show="addmember.qualification.$error.required">Tell
+                                                us
+                                                family
+                                                member
+                                                qualification.</span>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                            <div class="row">
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+
+                <!-- <input ng-model="myNumber" type="number" placeholder="No.of Members" /> -->
+
+                <!-- <form ng-repeat="i in range(myNumber) track by $index"> -->
+                <!-- <div class="row"> -->
+                <!-- <div class="form-group"> -->
+                <!-- <div class="col-lg-12"> -->
+
+
+                <!-- <div class="col-lg-4" ng-class="{ 'has-error' : addmember.f_name.$invalid && !addmember.f_name.$pristine }">
+                                    <div class="form-group">
+                                        <label> Name</label>
+                                        <input class="form-control" ng-model='newmember.f_name' ng-required="true" name="f_name">
+                                        <div ng-show="addmember.f_name.$dirty && addmember.f_name.$invalid" class="help-block">
+                                            <span ng-show="addmember.f_name.$error.required">Tell
+                                                us family
+                                                member
+                                                name.</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                <!-- age of family Section -->
+                <!-- <div class="col-lg-1" ng-class="{ 'has-error' : addMemberForm.age.$invalid && !addMemberForm.age.$pristine }">
+                                    <div class="form-group">
+                                        <label>Age</label>
+                                        <input type="number" class="form-control" id="age" min="01" max="150" name="age"
+                                            placeholder="18" ng-model="newmember.age" ng-required="true">
+
+                                        <div ng-show="addmember.age.$dirty && addmember.age.$invalid" class="help-block">
+                                            <span ng-show="addmember.age.$error.required">Tell
+                                                us age of
+                                                member
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                <!-- Sex of family section -->
+
+                <!-- <div class="col-lg-1" ng-class="{ 'has-error' : addmember.sex.$invalid && !addmember.sex.$pristine }">
+                                    <div class="form-group">
+                                        <label>Sex</label>
+                                        <select class="form-control" id="sex" ng-model="newmember.sex" name="select"
+                                            ng-required="true">
+                                            <option value="disabled selected">Select sex</option>
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
+                                            <option value="O">Other</option>
+                                        </select>
+                                        <div ng-show="addmember.sex.$dirty && addmember.sex.$invalid" class="help-block">
+                                            <span ng-show="addmember.sex.$error.required">Tell
+                                                us
+                                                sex.</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                <!-- blood group of family section -->
+                <!-- <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <label>Blood Group</label>
+                                        <select class="form-control" id="blood_group" ng-model="newmember.blood_group"
+                                            name="blood_group" ng-required="true">
+                                            <option value="disabled selected">Select Blood
+                                                Group</option>
+                                            <option value=" A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+
+                <!-- qualification of family member section  -->
+
+                <!-- <div class="col-lg-2" ng-class="{ 'has-error' : addmember.qualification.$invalid &&
+                    !addmember.qualification.$pristine }">
+                                    <div class="form-group">
+                                        <label> Qualification</label>
+                                        <input class="form-control" ng-model='newmember.qualification' ng-required="true"
+                                            name="qualification">
+                                        <div ng-show="addmember.qualification.$dirty && addmember.qualification.$invalid"
+                                            class="help-block">
+                                            <span ng-show="addmember.qualification.$error.required">Tell
+                                                us
+                                                family
+                                                member
+                                                qualification.</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                <!-- contact detail of member section -->
+
+                <!-- <div class="col-lg-2" ng-class="{ 'has-error' : addMemberForm.mContact.$invalid && !addMemberForm.mContact.$pristine }">
+                                    <label>Contact No</label>
+                                    <input type="number" class="form-control" id="contact_no" min="1000000000" max="9999999999"
+                                        name="mContact" placeholder="9000000000" ng-model="newmember.contact"
+                                        ng-required="true">
+
+                                    <div ng-show="addMemberForm.mContact.$dirty && addMemberForm.mContact.$invalid"
+                                        class="help-block">
+                                        <span ng-show="addMemberForm.mContact.$error.required">Tell
+                                            us your
+                                            Contact
+                                            No.</span>
+                                        <span ng-show="addMemberForm.mContact.$error.number ">The
+                                            value is
+                                            not
+                                            a
+                                            valid
+                                            number !</span>
+                                        <span ng-show="addMemberForm.mContact.$error.min || addMemberForm.mContact.$error.max">
+                                            Contact must be in 10 digits!</span>
+                                    </div>
+                                    <!-- </div>
+                                        </div> -->
+                <!-- </div> --> 
+                <!-- </form> -->
+
+
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- </form> -->
+            </div>
+
+
+
+            <!-- <div class="row">
                                 <form role="form">
                                     <div class="col-lg-11"></div>
                                     <div class="col-lg-1">
                                         <div class="form-group">
                                             <label></label>
                                             <button type="submit" class="btn btn-primary"
-                                                ng-click='addJamat(newJamat)'>Save</button>
+                                                ng-click='addmember(newmember)'>Save</button>
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </div> -->
+
+
 
             <!-- /.row (nested) -->
             <!-- <div class="row">
@@ -692,38 +762,25 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label class="radio-inline">
-                                    <input type="radio" name="h_owner_opt" id="h_owner_opt_1" value="Yes"
-                                        ng-model="newmember.rown">Yes
+                                    <input type="radio" name="capable" id="capable_1" value="Yes" ng-model="newmember.capable">Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="h_owner_opt" id="h_owner_opt_2" value="No"
-                                        ng-model="newmember.rown">
+                                    <input type="radio" name="capable" id="capable_2" value="No" ng-model="newmember.capable">
                                     No
                                 </label>
                             </div>
-                            <!-- </div> -->
-
-
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-10">
-                <input type="button" class="btn btn-info" ng-click="addNewChoice()" value="ADD">
-                <div class="col-sm-4">
-                    <fieldset data-ng-repeat="field in choiceSet.choices track by $index">
-                        <textarea rows="4" cols="50" ng-model=" choiceSet.choices[$index]"></textarea>
-                        <button type="button" class="btn btn-default btn-sm" ng-click="removeChoice($index)">
-                            <span class="glyphicon glyphicon-minus"></span> REMOVE
-                        </button>
-                    </fieldset>
-                </div>
-            </div>
+
             <div class="col-lg-10"></div>
             <div class="col-lg-2">
                 <div class="form-group">
                     <button class="btn btn-primary" ng-click='addMember(newmember)'>Save</button>
                 </div>
             </div>
+        </div>
+
     </form>
 </div>
