@@ -2,7 +2,6 @@
 
 angular.module('sbAdminApp')
     .controller('ZoneCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
-        console.log('hello hello');
 
         $scope.getZones = function () {
             $http({ url: 'http://localhost:3000/zone' }).then(function (successResponse) {
@@ -13,8 +12,8 @@ angular.module('sbAdminApp')
             });
         };
         $scope.newZone = {
-            name: 'name',
-            code: 'code'
+            name: '',
+            zcode: ''
         };
 
 

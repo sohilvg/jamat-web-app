@@ -37,16 +37,14 @@
                         <div class="row">
                             <form role="form">
                                 <div class="form-group">
-                                    <div class="col-lg-4"
-                                        ng-class="{ 'has-error' : addstates.state.$invalid && !addstates.state.$pristine }">
+                                    <div class="col-lg-4" ng-class="{ 'has-error' : addstates.state.$invalid && !addstates.state.$pristine }">
                                         <div class="form-group">
                                             <!-- <label>states State</label> -->
                                             <select class="form-control" id="b_state" ng-model="update_state.state">
                                                 <option ng-repeat="c in states" value="{{c.state}}">{{c.state}}</option>
-                                                <option value="" disabled selected>Select State</option>
+                                                <option value=" disabled selected">Select State</option>
                                             </select>
-                                            <div ng-show="addstates.state.$dirty && addstates.state.$invalid"
-                                                class="help-block">
+                                            <div ng-show="addstates.state.$dirty && addstates.state.$invalid" class="help-block">
                                                 <span ng-show="addstates.state.$error.required">Tell us states
                                                     state.</span>
                                             </div>
@@ -117,6 +115,5 @@
             <!-- /.panel -->
         </div>
         <!-- /.col-lg-6 -->
-
     </div>
 </div>

@@ -30,7 +30,7 @@ angular.module('sbAdminApp')
 		};
 		
 		$scope.getState = function () {
-			$http({ url: 'http://localhost:3000/state' }).then(function (successResponse) {
+			$http({ url: 'http://localhost:3000/states' }).then(function (successResponse) {
 				$scope.states = successResponse.data;
 				return successResponse;
 			}, function (errorResponse) {

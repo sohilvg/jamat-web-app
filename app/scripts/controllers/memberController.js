@@ -21,11 +21,11 @@ angular.module("sbAdminApp").controller("MemberCtrl", [
     };
 
     $scope.newmember = {
-      rown: "Yes",
-      bown: "Yes",
-      gender: "M",
-      bstate: "Goa",
-      sex: "M"
+      rown: "",
+      bown: "",
+      gender: "",
+      bstate: "",
+      sex: ""
       // blood_group: 'AB+'
     };
 
@@ -61,7 +61,7 @@ angular.module("sbAdminApp").controller("MemberCtrl", [
 
     $scope.getState = function () {
       $http({
-        url: "http://localhost:3000/state"
+        url: "http://localhost:3000/states"
       }).then(
         function (successResponse) {
           $scope.states = successResponse.data;
@@ -91,40 +91,19 @@ angular.module("sbAdminApp").controller("MemberCtrl", [
       var output = [];
       for (var i = 0; i < count; i++) {
         output.push({
-          name:"",
-          age:"",
-          sex:"",
-          contact:"",
-          qualification:""
+          name: "",
+          age: "",
+          sex: "",
+          contact: "",
+          qualification: ""
         })
       };
       return output;
     };
-    // $scope.getFmembers = function () {
-    // 	$http({ url: 'http://localhost:3000/family_members' }).then(function (successResponse) {
-    // 		$scope.family_members = successResponse.data;
-    // 		return successResponse;
-    // 	}, function (errorResponse) {
-    // 		return errorResponse
-    // 	});
-    // };
-
     $scope.getJamats();
     $scope.getDistricts();
     $scope.getState();
     $scope.getCity();
-    // $scope.getFmembers();
-    // Code goes here
+
   }
 ]);
-// var app = angular.module("sbAdminApp", []);
-// app.controller("MemberCtrl", function ($scope) {
-//   $scope.myNumber = 1;
-//   $scope.range = function (count) {
-//     var output = [];
-//     for (var i = 0; i < count; i++) {
-//       output.push(i)
-//     };
-//     return output;
-//   }
-// });

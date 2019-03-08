@@ -3,9 +3,10 @@
 
 angular.module('sbAdminApp')
 	.controller('CitiesCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
-		console.log('hello hello');
 		$scope.getCity = function () {
-			$http({ url: 'http://localhost:3000/city' }).then(function (successResponse) {
+			$http({
+				url: 'http://localhost:3000/city'
+			}).then(function (successResponse) {
 				$scope.cities = successResponse.data;
 				return successResponse;
 			}, function (errorResponse) {
@@ -13,13 +14,18 @@ angular.module('sbAdminApp')
 			});
 		};
 
-		$scope.update_city = {
-			city_code: '',
-			city: ''
-		};
-		$scope.addcities = function (update_city) {
+		$scope.newCities = {
+			city: '',
+			city_code: ''
 
-			$http({ url: 'http://localhost:3000/city', method: 'POST', data: update_city }).then(function (successResponse) {
+		};
+		$scope.addcities = function (newCities) {
+
+			$http({
+				url: 'http://localhost:3000/cities',
+				method: 'POST',
+				data: newCities
+			}).then(function (successResponse) {
 				$scope.getCity();
 				return successResponse;
 			}, function (errorResponse) {
