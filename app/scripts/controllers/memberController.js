@@ -95,6 +95,7 @@ angular.module("sbAdminApp").controller("MemberCtrl", [
           age: "",
           sex: "",
           contact: "",
+          f_blood_group:"",
           qualification: ""
         })
       };
