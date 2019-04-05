@@ -191,19 +191,7 @@ angular
             }
           }
         })
-        .state("dashboard.jamatid", {
-          templateUrl: "views/jamatid.html",
-          controller: "JamatidCtrl",
-          url: "/jamatid",
-          resolve: {
-            loadMyFile: function($ocLazyLoad) {
-              return $ocLazyLoad.load({
-                name: "sbAdminApp",
-                files: ["scripts/controllers/jamatidController.js"]
-              });
-            }
-          }
-        });
+       
       // .state('dashboard.member', {
       //   templateUrl: 'views/member.html',
       //   controller: 'FmembersCtrl',

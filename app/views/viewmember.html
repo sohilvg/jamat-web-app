@@ -34,7 +34,6 @@
                                 <th>Jamat Name</th>
                                 <th>Bussiness</th>
                                 <th>Contact</th>
-                                <th>Signin Person</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,7 +43,12 @@
                                 <td>{{member.jamat_name}}</td>
                                 <td>{{member.occupation}}</td>
                                 <td>{{member.contact_no}}</td>
-                                <td>{{member.name_sign}}</td>
+                                <td>
+                                    <div class="buttons">
+                                        <button class="btn btn-primary" ng-click="editstates($index)">Edit</button>
+                                        <button class="btn btn-danger" ng-click="deletestates($index)">Delete</button>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

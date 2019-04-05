@@ -31,21 +31,25 @@
                         <div class="row">
                             <form role="form">
                                 <div class="form-group">
-                                    <div class="col-lg-4" ng-class="{ 'has-error' : addcities.city.$invalid && !addcities.city.$pristine }">
+                                    <div class="col-lg-4"
+                                        ng-class="{ 'has-error' : addcities.city.$invalid && !addcities.city.$pristine }">
                                         <div class="form-group">
                                             <select class="form-control" id="b_city" ng-model="newCities.city">
+                                                <option value="">Select City</option>
                                                 <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
-                                                <option value=" disabled selected">Select City</option>
                                             </select>
-                                            <div ng-show="addcities.city.$dirty && addcities.city.$invalid" class="help-block">
-                                                <span ng-show="addcities.city.$error.required">Tell us cities city.</span>
+                                            <div ng-show="addcities.city.$dirty && addcities.city.$invalid"
+                                                class="help-block">
+                                                <span ng-show="addcities.city.$error.required">Tell us cities
+                                                    city.</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-1"></div>
                                 <div class="col-lg-2">
-                                    <input class="form-control" ng-model="newCities.city_code">
+                                    <input class="form-control" ng-model="newCities.city_code"
+                                        placeholder="Enter city code">
                                 </div>
                                 <div class="col-lg-"></div>
                                 <div class="col-lg-1">

@@ -14,43 +14,50 @@
                 <div class="panel-body">
                     <div class="row">
                         <form role="form">
-                            <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.jamat_code.$invalid && !addjamat.jamat_code.$pristine }">
+                            <div class="col-lg-3"
+                                ng-class="{ 'has-error' : addjamat.jamat_code.$invalid && !addjamat.jamat_code.$pristine }">
                                 <div class="form-group">
                                     <label>Jamat Code</label>
-                                    <input class="form-control" ng-model='newJamat.jamat_code' ng-required="true" name="jamat_code">
-                                    <div ng-show="addjamat.jamat_code.$dirty && addjamat.jamat.$invalid" class="help-block">
+                                    <input class="form-control" ng-model='newJamat.jamat_code' ng-required="true"
+                                        name="jamat_code" placeholder="enter jamat code">
+                                    <div ng-show="addjamat.jamat_code.$dirty && addjamat.jamat.$invalid"
+                                        class="help-block">
                                         <span ng-show="addjamat.jamat_code.$error.required">Tell us jamat code.</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.jamat.$invalid && !addjamat.jamat.$pristine }">
+                            <div class="col-lg-3"
+                                ng-class="{ 'has-error' : addjamat.jamat.$invalid && !addjamat.jamat.$pristine }">
                                 <div class="form-group">
                                     <label>Jamat Name</label>
-                                    <input class="form-control" ng-model='newJamat.name' ng-required="true" name="jamat">
+                                    <input class="form-control" ng-model='newJamat.name' ng-required="true" name="jamat"
+                                        placeholder="enter jamat">
                                     <div ng-show="addjamat.jamat.$dirty && addjamat.jamat.$invalid" class="help-block">
                                         <span ng-show="addjamat.jamat.$error.required">Tell us jamat name.</span>
                                     </div>
                                 </div>
                             </div>
                             <!-- city Section -->
-                            <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.city.$invalid && !addjamat.city.$pristine }">
+                            <div class="col-lg-3"
+                                ng-class="{ 'has-error' : addjamat.city.$invalid && !addjamat.city.$pristine }">
                                 <div class="form-group">
                                     <label>Jamat City</label>
                                     <select class="form-control" id="b_city" ng-model="newJamat.city">
+                                        <option value="">Select City</option>
                                         <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
-                                        <option value="" disabled selected>Select City</option>
                                     </select>
                                     <div ng-show="addjamat.city.$dirty && addjamat.city.$invalid" class="help-block">
                                         <span ng-show="addjamat.city.$error.required">Tell us jamat city.</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.state.$invalid && !addjamat.state.$pristine }">
+                            <div class="col-lg-3"
+                                ng-class="{ 'has-error' : addjamat.state.$invalid && !addjamat.state.$pristine }">
                                 <div class="form-group">
                                     <label>Jamat State</label>
                                     <select class="form-control" id="b_state" ng-model="newJamat.state">
+                                        <option value="">Select State</option>
                                         <option ng-repeat="c in states" value="{{c.state}}">{{c.state}}</option>
-                                        <option value=" disabled selected">Select State</option>
                                     </select>
                                     <div ng-show="addjamat.state.$dirty && addjamat.state.$invalid" class="help-block">
                                         <span ng-show="addjamat.state.$error.required">Tell us jamat state.</span>
@@ -67,7 +74,8 @@
                             <div class="col-lg-1">
                                 <div class="form-group">
                                     <label></label>
-                                    <button type="submit" class="btn btn-primary" ng-click='addJamat(newJamat)'>Save</button>
+                                    <button type="submit" class="btn btn-primary"
+                                        ng-click='addJamat(newJamat)'>Save</button>
                                 </div>
                             </div>
                         </form>
