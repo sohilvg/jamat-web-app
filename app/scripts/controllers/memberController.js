@@ -24,7 +24,6 @@ angular.module("sbAdminApp").controller("MemberCtrl", [
       rown: "",
       bown: "",
       gender: "",
-      bstate: "",
       sex: ""
       // blood_group: 'AB+'
     };
