@@ -7,18 +7,21 @@
  *
  * Main module of the application.
  */
+angular.module('Authentication', []);
+
 angular
   .module("sbAdminApp", [
     "oc.lazyLoad",
     "ui.router",
     "ui.bootstrap",
-    "angular-loading-bar"
+    "angular-loading-bar",
+    "Authentication"
   ])
   .config([
     "$stateProvider",
     "$urlRouterProvider",
     "$ocLazyLoadProvider",
-    function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+    function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       $ocLazyLoadProvider.config({
         debug: false,
         events: true
@@ -31,7 +34,7 @@ angular
           url: "/dashboard",
           templateUrl: "views/dashboard/main.html",
           resolve: {
-            loadMyDirectives: function($ocLazyLoad) {
+            loadMyDirectives: function ($ocLazyLoad) {
               return (
                 $ocLazyLoad.load({
                   name: "sbAdminApp",
@@ -78,7 +81,7 @@ angular
           controller: "MainCtrl",
           templateUrl: "views/dashboard/home.html",
           resolve: {
-            loadMyFiles: function($ocLazyLoad) {
+            loadMyFiles: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: "sbAdminApp",
                 files: [
@@ -104,11 +107,26 @@ angular
           templateUrl: "views/pages/login.html",
           url: "/login",
           controller: "LoginCtrl",
+          controllerAs: 'vm',
           resolve: {
-            loadMyFile: function($ocLazyLoad) {
+            loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: "sbAdminApp",
                 files: ["scripts/controllers/loginController.js"]
+              });
+            }
+          }
+        })
+        .state("signup", {
+          templateUrl: "views/pages/signup.html",
+          url: "/signup",
+          controller: "SignupCtrl",
+          controllerAs: 'vm',
+          resolve: {
+            loadMyFile: function ($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: "sbAdminApp",
+                files: ["scripts/controllers/signupController.js"]
               });
             }
           }
@@ -118,7 +136,7 @@ angular
           url: "/member",
           controller: "MemberCtrl",
           resolve: {
-            loadMyFile: function($ocLazyLoad) {
+            loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: "sbAdminApp",
                 files: ["scripts/controllers/memberController.js"]
@@ -131,7 +149,7 @@ angular
           url: "/viewmember",
           controller: "ViewmemberCtrl",
           resolve: {
-            loadMyFile: function($ocLazyLoad) {
+            loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: "sbAdminApp",
                 files: ["scripts/controllers/viewmemberController.js"]
@@ -144,7 +162,7 @@ angular
           controller: "JamatCtrl",
           url: "/jamat",
           resolve: {
-            loadMyFile: function($ocLazyLoad) {
+            loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: "sbAdminApp",
                 files: ["scripts/controllers/jamatController.js"]
@@ -157,7 +175,7 @@ angular
           controller: "StatesCtrl",
           url: "/states",
           resolve: {
-            loadMyFile: function($ocLazyLoad) {
+            loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: "sbAdminApp",
                 files: ["scripts/controllers/statesController.js"]
@@ -170,7 +188,7 @@ angular
           controller: "CitiesCtrl",
           url: "/cities",
           resolve: {
-            loadMyFile: function($ocLazyLoad) {
+            loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: "sbAdminApp",
                 files: ["scripts/controllers/citiesController.js"]
@@ -183,7 +201,7 @@ angular
           controller: "ZoneCtrl",
           url: "/zone",
           resolve: {
-            loadMyFile: function($ocLazyLoad) {
+            loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: "sbAdminApp",
                 files: ["scripts/controllers/zoneController.js"]
@@ -191,7 +209,7 @@ angular
             }
           }
         })
-       
+
       // .state('dashboard.member', {
       //   templateUrl: 'views/member.html',
       //   controller: 'FmembersCtrl',
@@ -205,5 +223,58 @@ angular
       //     }
       //   }
       // });
+
     }
+
   ]);
+(function () {
+  'use strict';
+
+  angular
+    .module('app', ['ngRoute', 'ngCookies'])
+    .config(config)
+    .run(run);
+
+  config.$inject = ['$routeProvider', '$locationProvider'];
+  function config($routeProvider, $locationProvider) {
+    $routeProvider
+      .when('/', {
+        controller: 'HomeController',
+        templateUrl: 'home/home.view.html',
+        controllerAs: 'vm'
+      })
+
+      .when('/login', {
+        controller: 'LoginController',
+        templateUrl: 'login/login.view.html',
+        controllerAs: 'vm'
+      })
+
+      .when('/register', {
+        controller: 'RegisterController',
+        templateUrl: 'register/register.view.html',
+        controllerAs: 'vm'
+      })
+
+      .otherwise({ redirectTo: '/login' });
+  }
+
+  run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
+  function run($rootScope, $location, $cookieStore, $http) {
+    // keep user logged in after page refresh
+    $rootScope.globals = $cookieStore.get('globals') || {};
+    if ($rootScope.globals.currentUser) {
+      $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+    }
+
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+      // redirect to login page if not logged in and trying to access a restricted page
+      var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+      var loggedIn = $rootScope.globals.currentUser;
+      if (restrictedPage && !loggedIn) {
+        $location.path('/login');
+      }
+    });
+  }
+
+})();

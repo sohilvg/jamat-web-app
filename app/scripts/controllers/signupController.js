@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('sbAdminApp')
-  .controller('LoginCtrl', ['$scope', '$timeout', '$http', '$state', function ($scope, $timeout, $http, $state) {
-    $scope.userlogin = function (loginuser) {
+  .controller('SignupCtrl', ['$scope', '$timeout', '$http', '$state', function ($scope, $timeout, $http, $state) {
+    $scope.usersignup = function (signupuser) {
       $http({
-        url: "http://localhost:3000/api/v1/login",
+        url: "http://localhost:3000/api/v1/signup",
         method: "POST",
-        data: loginuser
+        data: signupuser
       }).then(
         function (successResponse) {
           $state.go("dashboard.home");
