@@ -8,7 +8,33 @@
  * Main module of the application.
  */
 angular.module('Authentication', []);
+const app = angular.module('app', ['ui.router']);
 
+app.service('session', function($timeout, $q){
+  this.role = null;
+
+  this.loadRole = function(){
+      //load role using axax request and return promise
+  };
+});
+app.config(function($stateProvider, $urlRouterProvider){
+  $stateProvider.state('dashboard', {
+      url: '/dashboard',
+      templateProvider: function(session, $stateParams, $templateFactory){
+        return session.loadRole().then(function(role){
+            if(session.role == 'admin'){
+              return $templateFactory.fromUrl('/admin/dashboard.html', $stateParams);
+            } else {
+              return $templateFactory.fromUrl('/user/dashboard.html', $stateParams);
+            }
+        });
+      }
+    });
+
+  $urlRouterProvider.otherwise('/dashboard');
+});
+
+//With role base//
 angular
   .module("sbAdminApp", [
     "oc.lazyLoad",
@@ -27,7 +53,7 @@ angular
         events: true
       });
 
-      $urlRouterProvider.otherwise("/dashboard/home");
+      $urlRouterProvider.otherwise("login");
 
       $stateProvider
         .state("dashboard", {
@@ -80,6 +106,15 @@ angular
           url: "/home",
           controller: "MainCtrl",
           templateUrl: "views/dashboard/home.html",
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/dashboard/home.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/dashboard/home.html", $stateParams);
+                }
+            });
+          },
           resolve: {
             loadMyFiles: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
@@ -104,6 +139,15 @@ angular
           url: "/blank"
         })
         .state("login", {
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/pages/login.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/pages/login.html", $stateParams);
+                }
+            });
+          },
           templateUrl: "views/pages/login.html",
           url: "/login",
           controller: "LoginCtrl",
@@ -118,6 +162,15 @@ angular
           }
         })
         .state("signup", {
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/pages/signup.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/pages/signup.html", $stateParams);
+                }
+            });
+          },
           templateUrl: "views/pages/signup.html",
           url: "/signup",
           controller: "SignupCtrl",
@@ -132,6 +185,15 @@ angular
           }
         })
         .state("dashboard.member", {
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/member.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/member.html", $stateParams);
+                }
+            });
+          },
           templateUrl: "views/member.html",
           url: "/member",
           controller: "MemberCtrl",
@@ -145,6 +207,15 @@ angular
           }
         })
         .state("dashboard.viewmember", {
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/viewmember.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/viewmember.html", $stateParams);
+                }
+            });
+          },
           templateUrl: "views/viewmember.html",
           url: "/viewmember",
           controller: "ViewmemberCtrl",
@@ -158,6 +229,15 @@ angular
           }
         })
         .state("dashboard.jamat", {
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/jamat.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/jamat.html", $stateParams);
+                }
+            });
+          },
           templateUrl: "views/jamat.html",
           controller: "JamatCtrl",
           url: "/jamat",
@@ -171,6 +251,15 @@ angular
           }
         })
         .state("dashboard.states", {
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/states.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/states.html", $stateParams);
+                }
+            });
+          },
           templateUrl: "views/states.html",
           controller: "StatesCtrl",
           url: "/states",
@@ -184,6 +273,15 @@ angular
           }
         })
         .state("dashboard.cities", {
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/cities.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/cities.html", $stateParams);
+                }
+            });
+          },
           templateUrl: "views/cities.html",
           controller: "CitiesCtrl",
           url: "/cities",
@@ -197,6 +295,15 @@ angular
           }
         })
         .state("dashboard.zone", {
+          templateProvider: function(session, $stateParams, $templateFactory){
+            return session.loadRole().then(function(role){
+                if(session.role == 'admin'){
+                  return $templateFactory.fromUrl("views/admin/zone.html", $stateParams);
+                } else {
+                  return $templateFactory.fromUrl("views/user/zone.html", $stateParams);
+                }
+            });
+          },
           templateUrl: "views/zone.html",
           controller: "ZoneCtrl",
           url: "/zone",
@@ -269,8 +376,8 @@ angular
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
       // redirect to login page if not logged in and trying to access a restricted page
-      var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
-      var loggedIn = $rootScope.globals.currentUser;
+      const restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+      const loggedIn = $rootScope.globals.currentUser;
       if (restrictedPage && !loggedIn) {
         $location.path('/login');
       }

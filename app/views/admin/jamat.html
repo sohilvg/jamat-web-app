@@ -1,0 +1,169 @@
+<form name="addjamat">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Jamats</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Enter New Jamat
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <form role="form">
+                                
+                            <div class="col-lg-3" ng-class="{ 'has-error' : addjamat.jamat_code.$invalid &&
+                                !addjamat.jamat_code.$pristine }">
+                                <div class="form-group">
+                                    <label>Jamat Code</label>
+                                    <input class="form-control" ng-model="newJamat.jamat_code"
+                                        placeholder="Enter jamat code">
+                                    <div ng-show="addjamat.jamat_code.$dirty && addjamat.jamat.$invalid"
+                                        class="help-block">
+                                        <span ng-show="addjamat.jamat_code.$error.required">Tell us jamat code.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3"
+                                ng-class="{ 'has-error' : addjamat.jamat.$invalid && !addjamat.jamat.$pristine }">
+                                <div class="form-group">
+                                    <label>Jamat Name</label>
+                                    <input class="form-control" ng-model='newJamat.name' ng-required="true" name="jamat"
+                                        placeholder="enter jamat">
+                                    <div ng-show="addjamat.jamat.$dirty && addjamat.jamat.$invalid" class="help-block">
+                                        <span ng-show="addjamat.jamat.$error.required">Tell us jamat name.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- city Section -->
+                            <div class="col-lg-3"
+                                ng-class="{ 'has-error' : addjamat.city.$invalid && !addjamat.city.$pristine }">
+                                <div class="form-group">
+                                    <label>Jamat City</label>
+                                    <select class="form-control" id="b_city" ng-model="newJamat.city">
+                                        <option value="">Select City</option>
+                                        <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
+                                    </select>
+                                    <div ng-show="addjamat.city.$dirty && addjamat.city.$invalid" class="help-block">
+                                        <span ng-show="addjamat.city.$error.required">Tell us jamat city.</span>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- state Section -->
+
+                            <div class="col-lg-3"
+                                ng-class="{ 'has-error' : addjamat.state.$invalid && !addjamat.state.$pristine }">
+                                <div class="form-group">
+                                    <label>Jamat State</label>
+                                    <select class="form-control" id="b_state" ng-model="newJamat.state">
+                                        <option value="">Select State</option>
+                                        <option ng-repeat="c in states" value="{{c.state}}">{{c.state}}</option>
+                                    </select>
+                                    <div ng-show="addjamat.state.$dirty && addjamat.state.$invalid" class="help-block">
+                                        <span ng-show="addjamat.state.$error.required">Tell us jamat state.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- /.row (nested) -->
+
+                    </div>
+                    <div class="row">
+                        <form role="form">
+                            <div class="col-lg-11"></div>
+                            <div class="col-lg-1">
+                                <div class="form-group">
+                                    <label></label>
+                                    <button type="submit" class="btn btn-primary"
+                                        ng-click='addJamat(newJamat)'>Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // search filter// -->
+    <div class="row">
+            <div class="col-lg-9"></div>
+            <div class="col-lg-3">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" ng-model="searchText" placeholder="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    All Jamats
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <!-- <th>#</th> -->
+                                    <th>Id</th>
+                                    <th>Jamat Code</th>
+                                    <th>Name</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="jamat in jamats | filter:searchText">
+                                    <!-- <td>{{$index + 1}}</td> -->
+                                    <td>{{jamat.id}}</td>
+                                    <td>{{jamat.jamat_code}}</td>
+                                    <td>{{jamat.name}}</td>
+                                    <td>{{jamat.city}}</td>
+                                    <td>{{jamat.state}}</td>
+                                    <td>
+                                        <div class="buttons">
+                                            <a ng-click="readOne(jamat.id)" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit" aria-hidden="true"> Edit</span></a>
+                                                <a class="btn btn-danger " data-toggle="modal" data-target="#confirm{{jamat.id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"> Delete</span></a>
+                                                <div class="modal" id="confirm{{jamat.id}}" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                          <h4 class="modal-title">Confirm</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div><b style='color: red'>{{modalstatustext}}</b></div>
+                                                          <p>Are you sure you want to delete this record?</p>
+                                                          <div ng-show="loader.loading">Loading...</div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                                          <button type="button" class="btn btn-danger" ng-click="deleteJamat(jamat.id)" >Yes</button>
+                                                        </div>
+                                                      </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                  </div><!-- /.modal -->
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+</form>
