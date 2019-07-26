@@ -29,6 +29,22 @@ angular.module('sbAdminApp')
 		};
 		$scope.getState();
 
+		// For delete state//
+
+		$scope.deleteStates = function(name){				
+			var index = -1;		
+			var comArr = eval( $scope.states );
+			for( var i = 0; i < comArr.length; i++ ) {
+				if( comArr[i].name === name ) {
+					index = i;
+					break;
+				}
+			}
+			if( index === -1 ) {
+				alert( "Something gone wrong" );
+			}
+			$scope.states.splice( index, 1 );		
+		};
 		$scope.deleteStates={
             id:''
         };

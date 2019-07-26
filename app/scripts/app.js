@@ -10,26 +10,26 @@
 angular.module('Authentication', []);
 const app = angular.module('app', ['ui.router']);
 
-app.service('session', function($timeout, $q){
+app.service('session', function ($timeout, $q) {
   this.role = null;
 
-  this.loadRole = function(){
-      //load role using axax request and return promise
+  this.loadRole = function () {
+    //load role using axax request and return promise
   };
 });
-app.config(function($stateProvider, $urlRouterProvider){
+app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('dashboard', {
-      url: '/dashboard',
-      templateProvider: function(session, $stateParams, $templateFactory){
-        return session.loadRole().then(function(role){
-            if(session.role == 'admin'){
-              return $templateFactory.fromUrl('/admin/dashboard.html', $stateParams);
-            } else {
-              return $templateFactory.fromUrl('/user/dashboard.html', $stateParams);
-            }
-        });
-      }
-    });
+    url: '/dashboard',
+    templateProvider: function (session, $stateParams, $templateFactory) {
+      return session.loadRole().then(function (role) {
+        if (session.role == 'admin') {
+          return $templateFactory.fromUrl('/admin/dashboard.html', $stateParams);
+        } else {
+          return $templateFactory.fromUrl('/user/dashboard.html', $stateParams);
+        }
+      });
+    }
+  });
 
   $urlRouterProvider.otherwise('/dashboard');
 });
@@ -47,6 +47,7 @@ angular
     "$stateProvider",
     "$urlRouterProvider",
     "$ocLazyLoadProvider",
+
     function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       $ocLazyLoadProvider.config({
         debug: false,
@@ -106,13 +107,13 @@ angular
           url: "/home",
           controller: "MainCtrl",
           templateUrl: "views/dashboard/home.html",
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/dashboard/home.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/dashboard/home.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/dashboard/home.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/dashboard/home.html", $stateParams);
+              }
             });
           },
           resolve: {
@@ -139,13 +140,13 @@ angular
           url: "/blank"
         })
         .state("login", {
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/pages/login.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/pages/login.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/pages/login.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/pages/login.html", $stateParams);
+              }
             });
           },
           templateUrl: "views/pages/login.html",
@@ -162,13 +163,13 @@ angular
           }
         })
         .state("signup", {
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/pages/signup.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/pages/signup.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/pages/signup.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/pages/signup.html", $stateParams);
+              }
             });
           },
           templateUrl: "views/pages/signup.html",
@@ -185,13 +186,13 @@ angular
           }
         })
         .state("dashboard.member", {
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/member.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/member.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/member.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/member.html", $stateParams);
+              }
             });
           },
           templateUrl: "views/member.html",
@@ -207,13 +208,13 @@ angular
           }
         })
         .state("dashboard.viewmember", {
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/viewmember.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/viewmember.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/viewmember.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/viewmember.html", $stateParams);
+              }
             });
           },
           templateUrl: "views/viewmember.html",
@@ -229,13 +230,13 @@ angular
           }
         })
         .state("dashboard.jamat", {
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/jamat.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/jamat.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/jamat.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/jamat.html", $stateParams);
+              }
             });
           },
           templateUrl: "views/jamat.html",
@@ -251,13 +252,13 @@ angular
           }
         })
         .state("dashboard.states", {
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/states.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/states.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/states.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/states.html", $stateParams);
+              }
             });
           },
           templateUrl: "views/states.html",
@@ -273,13 +274,13 @@ angular
           }
         })
         .state("dashboard.cities", {
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/cities.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/cities.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/cities.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/cities.html", $stateParams);
+              }
             });
           },
           templateUrl: "views/cities.html",
@@ -295,13 +296,13 @@ angular
           }
         })
         .state("dashboard.zone", {
-          templateProvider: function(session, $stateParams, $templateFactory){
-            return session.loadRole().then(function(role){
-                if(session.role == 'admin'){
-                  return $templateFactory.fromUrl("views/admin/zone.html", $stateParams);
-                } else {
-                  return $templateFactory.fromUrl("views/user/zone.html", $stateParams);
-                }
+          templateProvider: function (session, $stateParams, $templateFactory) {
+            return session.loadRole().then(function (role) {
+              if (session.role == 'admin') {
+                return $templateFactory.fromUrl("views/admin/zone.html", $stateParams);
+              } else {
+                return $templateFactory.fromUrl("views/user/zone.html", $stateParams);
+              }
             });
           },
           templateUrl: "views/zone.html",
@@ -338,7 +339,8 @@ angular
   'use strict';
 
   angular
-    .module('app', ['ngRoute', 'ngCookies'])
+    .module('app', ['ngRoute', 'ngResource', 'AuthServices'
+      , 'ngCookies'])
     .config(config)
     .run(run);
 
@@ -348,7 +350,16 @@ angular
       .when('/', {
         controller: 'HomeController',
         templateUrl: 'home/home.view.html',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        requiresAuthentication: true
+
+      })
+      .when('/member', {
+        controller: 'MemberCtrl',
+        templateUrl: "views/member.html",
+        controllerAs: 'vm',
+        permissions: ["administration"]
+
       })
 
       .when('/login', {
@@ -385,3 +396,124 @@ angular
   }
 
 })();
+// angular.module('AuthServices', ['ngResource', 'ngStorage'])
+//   .factory('Auth', function ($resource, $rootScope, $sessionStorage, $q) {
+
+//     /**
+//      *  User profile resource
+//      */
+//     const Profile = $resource('/api/profile', {}, {
+//       login: {
+//         method: "POST",
+//         isArray: false
+//       }
+//     });
+
+//     const auth = {};
+
+//     /**
+//      *  Saves the current user in the root scope
+//      *  Call this in the app run() method
+//      */
+//     auth.init = function () {
+//       if (auth.isLoggedIn()) {
+//         $rootScope.user = auth.currentUser();
+//       }
+//     };
+
+//     auth.login = function (username, password) {
+//       return $q(function (resolve, reject) {
+//         Profile.login({ username: username, password: password }).$promise
+//           .then(function (data) {
+//             $sessionStorage.user = data;
+//             $rootScope.user = $sessionStorage.user;
+//             resolve();
+//           }, function () {
+//             reject();
+//           });
+//       });
+//     };
+
+
+//     auth.logout = function () {
+//       delete $sessionStorage.user;
+//       delete $rootScope.user;
+//     };
+
+
+//     auth.checkPermissionForView = function (view) {
+//       if (!view.requiresAuthentication) {
+//         return true;
+//       }
+
+//       return userHasPermissionForView(view);
+//     };
+
+
+//     const userHasPermissionForView = function (view) {
+//       if (!auth.isLoggedIn()) {
+//         return false;
+//       }
+
+//       if (!view.permissions || !view.permissions.length) {
+//         return true;
+//       }
+
+//       return auth.userHasPermission(view.permissions);
+//     };
+
+
+//     auth.userHasPermission = function (permissions) {
+//       if (!auth.isLoggedIn()) {
+//         return false;
+//       }
+
+//       const found = false;
+//       angular.forEach(permissions, function (permission, index) {
+//         if ($sessionStorage.user.user_permissions.indexOf(permission) >= 0) {
+//           found = true;
+//           return;
+//         }
+//       });
+
+//       return found;
+//     };
+
+
+//     auth.currentUser = function () {
+//       return $sessionStorage.user;
+//     };
+
+
+//     auth.isLoggedIn = function () {
+//       return $sessionStorage.user != null;
+//     };
+
+
+//     return auth;
+//   });
+// angular.module('app').controller('LoginCtrl', function ($scope, $location, Auth) {
+
+//   $scope.email = "";
+//   $scope.password = "";
+//   $scope.failed = false;
+
+//   $scope.login = function () {
+//     Auth.login($scope.email, $scope.password)
+//       .then(function () {
+//         $location.path("/home");
+//       }, function () {
+//         $scope.failed = true;
+//       });
+//   };
+
+// });
+// angular.module('app')
+//   .controller('MainCtrl', function ($scope, $rootScope, $location, Auth) {
+
+//     $rootScope.logout = function () {
+//       Auth.logout();
+//       $location.path("/login");
+//     };
+
+//   });
