@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sbAdminApp')
+angular.module('AIMJF')
   .controller('LoginCtrl', ['$scope', '$timeout', '$http', '$state', function ($scope, $timeout, $http, $state) {
     $scope.userlogin = function (loginuser) {
       $http({

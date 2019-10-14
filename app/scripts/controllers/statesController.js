@@ -1,5 +1,5 @@
 'use strict';
-angular.module('sbAdminApp')
+angular.module('AIMJF')
 	.controller('StatesCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
 		$scope.getState = function () {
 			$http({

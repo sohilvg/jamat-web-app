@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('sbAdminApp')
+angular.module('AIMJF')
 	.controller('CitiesCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
 		$scope.getCity = function () {
 			$http({

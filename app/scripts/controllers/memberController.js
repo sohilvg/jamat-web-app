@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("sbAdminApp").controller("MemberCtrl", [
+angular.module("AIMJF").controller("MemberCtrl", [
   "$scope",
   "$timeout",
   "$http",

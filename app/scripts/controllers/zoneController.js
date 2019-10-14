@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sbAdminApp')
+angular.module('AIMJF')
     .controller('ZoneCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
 
         $scope.getZones = function () {
@@ -41,4 +41,5 @@ angular.module('sbAdminApp')
                 return errorResponse
             });
         };
+        $scope.getZones();
     }]);

@@ -1,12 +1,12 @@
 'use strict';
 /**
  * @ngdoc function
- * @name sbAdminApp.controller:MainCtrl
+ * @name AIMJF.controller:MainCtrl
  * @description
  * # MainCtrl
  * Controller of the sbAdminApp
  */
-angular.module('sbAdminApp')
+angular.module('AIMJF')
 	.controller('ChartCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 		$scope.line = {
 			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

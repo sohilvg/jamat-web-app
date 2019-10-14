@@ -1,9 +1,9 @@
 "use strict";
 /**
  * @ngdoc overview
- * @name sbAdminApp
+ * @name AIMJF
  * @description
- * # sbAdminApp
+ * # AIMJF
  *
  * Main module of the application.
  */
@@ -36,7 +36,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
 //With role base//
 angular
-  .module("sbAdminApp", [
+  .module("AIMJF", [
     "oc.lazyLoad",
     "ui.router",
     "ui.bootstrap",
@@ -64,7 +64,7 @@ angular
             loadMyDirectives: function ($ocLazyLoad) {
               return (
                 $ocLazyLoad.load({
-                  name: "sbAdminApp",
+                  name: "AIMJF",
                   files: [
                     "scripts/directives/header/header.js",
                     "scripts/directives/header/header-notification/header-notification.js",
@@ -119,7 +119,7 @@ angular
           resolve: {
             loadMyFiles: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: [
                   "scripts/controllers/main.js",
                   "scripts/directives/timeline/timeline.js",
@@ -156,7 +156,7 @@ angular
           resolve: {
             loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: ["scripts/controllers/loginController.js"]
               });
             }
@@ -179,7 +179,7 @@ angular
           resolve: {
             loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: ["scripts/controllers/signupController.js"]
               });
             }
@@ -201,7 +201,7 @@ angular
           resolve: {
             loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: ["scripts/controllers/memberController.js"]
               });
             }
@@ -223,7 +223,7 @@ angular
           resolve: {
             loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: ["scripts/controllers/viewmemberController.js"]
               });
             }
@@ -245,7 +245,7 @@ angular
           resolve: {
             loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: ["scripts/controllers/jamatController.js"]
               });
             }
@@ -267,7 +267,7 @@ angular
           resolve: {
             loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: ["scripts/controllers/statesController.js"]
               });
             }
@@ -289,7 +289,7 @@ angular
           resolve: {
             loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: ["scripts/controllers/citiesController.js"]
               });
             }
@@ -311,7 +311,7 @@ angular
           resolve: {
             loadMyFile: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-                name: "sbAdminApp",
+                name: "AIMJF",
                 files: ["scripts/controllers/zoneController.js"]
               });
             }
@@ -325,7 +325,7 @@ angular
       //   resolve: {
       //     loadMyFile: function ($ocLazyLoad) {
       //       return $ocLazyLoad.load({
-      //         name: 'sbAdminApp',
+      //         name: 'AIMJF',
       //         files: ['scripts/controllers/FmembersController.js']
       //       })
       //     }

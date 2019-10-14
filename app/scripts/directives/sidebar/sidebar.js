@@ -7,7 +7,7 @@
  * # adminPosHeader
  */
 
-angular.module('sbAdminApp')
+angular.module('AIMJF')
   .directive('sidebar',['$location',function() {
     return {
       templateUrl:'scripts/directives/sidebar/sidebar.html',
