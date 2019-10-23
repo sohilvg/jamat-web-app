@@ -48,6 +48,16 @@ angular.module('AIMJF')
 			});
 
 		};
+		$scope.deleteJamat = function (id) {
+
+			$http({ url: `http://localhost:3000/api/v1/jamat/${id}`, method: 'DELETE', data: id }).then(function (successResponse) {
+				$scope.getJamats();
+				return successResponse;
+			}, function (errorResponse) {
+				return errorResponse
+			});
+
+		};
 		$scope.getJamats();
 		$scope.getState();
 		$scope.getCity();

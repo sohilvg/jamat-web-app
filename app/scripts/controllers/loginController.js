@@ -9,7 +9,8 @@ angular.module('AIMJF')
         data: loginuser
       }).then(
         function (successResponse) {
-          $state.go("dashboard.home");
+          var url = 'dashboard.home'
+          $state.go(url);
           return successResponse;
         },
         function (errorResponse) {
